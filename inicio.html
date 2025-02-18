@@ -26,6 +26,21 @@
             width: 100%;
             margin-bottom: 15px;
         }
+
+        /* Esconde o conteúdo para telas maiores que 768px */
+@media (min-width: 768px) {
+  body {
+    display: none;
+  }
+}
+
+/* Exibe o conteúdo normalmente em telas menores que 768px */
+@media (max-width: 767px) {
+  body {
+    display: block;
+  }
+}
+
     </style>
 </head>
 <body class="bg-gray-900 text-white">
@@ -119,7 +134,25 @@
         <i class="fa-solid fa-calendar-check text-green text-xl cursor-pointer" id="icon-button"></i>
         <!-- Card com borda ajustada -->
         <div style="z-index: 2;" id="floating-card" class="absolute right-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg border-gray-700 w-64 p-4 hidden overflow-auto max-h-64">
-            <h3 class="text-lg font-bold mb-2">Para fazer</h3>
+            <h3 class="text-lg font-bold mb-2">1º Bimestre</h3>
+
+            <a href="tabela.html" class="link-estilizado">
+                Ver Cronograma de Provas
+              </a>
+              
+              <style>
+                .link-estilizado {
+                  font-size: 1rem; /* Tamanho da fonte */
+                  font-weight: bold; /* Deixa o texto em negrito */
+                  color: rgb(96, 219, 174); /* Cor do texto */
+                  text-decoration: underline; /* Sublinhar o texto */
+                  text-decoration-color: rgba(52, 211, 153, var(--tw-text-opacity)); /* Cor do sublinhado */
+                }
+              </style>
+                                 
+              
+
+            <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para fazer</h3>
 
             <p class="text-sm text-gray-300">
                 <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Fazer Revisão de Geografia
@@ -256,18 +289,18 @@
             <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar atividades..." onkeyup="searchCards()">
             <div class="grid grid-cols-2 gap-4" id="cards-container">
             
-
-
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Livro de Inglês pág 10 e 11', 'Eslly', 'Questão 1.\n\na) have helped\nb) haes goin\nc) Have you packed\nd) have dissapeard\ne) havent criud\nf) Has Alfred had\ng) has rained\n\nQuestão 2.\n\n(e) too many pictures of the Coliseu\n(f) to pay for his trip do Japan\n(a) tickets to the shared bathroom\n(b) because the sared bathrom\n(c) mugged by pickpockets\n(d) a lot with directions\n\nQuestão 3.\n\nhave helped / have do / have triud / phone / have studied / have help / has doing / he have\n\na) they have taked dance lessons together\n\nb) Have you readed the neews read?\n\nc) We have watched that move money times\n\nd) I have be restaurant new seafood\n\ne) It have it stoped barking yet?\n\nQuestão 5. (pode mudar)\n\nSarah and I visited Mark and Lucy last weekend. They have taken dance lessons together, and we were impressed by their moves. We have watched that movie many times, but it’s still funny. We also asked, \It has stopped barking yet?\ as their dog had been noisy earlier.')">
+                    <h3 class="text-xl font-bold">Livro de Inglês pág 10 e 11</h3>
+                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                </div>
 
 
 
 
 <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Química" onclick="abrirModal('Exercício 7 de Química', 'Eslly', '7. Calcule a variação de entalpia a partir dos dados fornecidos<br><br>2CH4(g) + O²(g) -> 2CH³ OH(l)<br><br>Dado que:<br><br>I. CH4(g) + H²O(g) -> C4(g) + 3H²(g)<br>∆H¹= +206KJ<br><br>II. 2H²(g) + C0(g) -> CH³OH(l)<br>∆H²= -128KJ<br><br>III. 2H²(g) + O²(g) -> CH³OH(l) -> 2H²O(g)<br>∆H³= -483KJ<br><br>I. x2<br>II. x2<br>III. mantém<br><br>2CH4 + 2̶H̶²̶0̶ -> 2Co + 6̶H̶²̶<br>4H + 2Co -> 2CHOH<br>2H²² + O² -> 2H²O³<br><br>∆H = ∆H¹ + ∆H² + ∆H³<br>∆H = 412 - 256 - 483<br>∆H = 412 - 739<br>∆H = -327KJ<br><br>R = -327KJ')">  <h3 class="text-xl font-bold">Exercício 7 de Química</h3>  
-
             <p class="text-sm text-gray-400">Enviado por: Eslly</p>  
-
             <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>  
-
         </div>    
 
 
