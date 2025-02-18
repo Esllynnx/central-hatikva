@@ -31,7 +31,170 @@
 <body class="bg-gray-900 text-white">
     <header class="bg-gray-800 p-4 flex justify-between items-center">
         <h1 class="text-xl font-bold text-green-400">Minhas Atividades</h1>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flutuante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .relative {
+            position: relative;
+        }
+        .absolute {
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .shadow-lg {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        .bg-gray-800 {
+            background-color: #2d3748;
+        }
+        .text-gray-300 {
+            color: #d1d5db;
+        }
+        .text-white {
+            color: #fff;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        .p-4 {
+            padding: 1rem;
+        }
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+        .right-0 {
+            right: 0;
+        }
+        .max-h-64 {
+            max-height: 16rem;
+        }
+        .w-64 {
+            width: 16rem;
+        }
+        .overflow-auto {
+            overflow: auto;
+        }
+        /* Borda do card */
+        .border-gray-700 {
+            border: 1px solid #4a5568; /* Cor ligeiramente mais clara que o fundo */
+        }
+        /* Cor do ícone */
+        .text-green {
+            color: rgba(52, 211, 153, var(--tw-text-opacity));
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+    <div class="relative">
+        <!-- Ícone com nova cor -->
+        <i class="fa-solid fa-calendar-check text-green text-xl cursor-pointer" id="icon-button"></i>
+        <!-- Card com borda ajustada -->
+        <div style="z-index: 2;" id="floating-card" class="absolute right-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg border-gray-700 w-64 p-4 hidden overflow-auto max-h-64">
+            <h3 class="text-lg font-bold mb-2">Para fazer</h3>
+
+            <p class="text-sm text-gray-300">
+                <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Fazer Revisão de Geografia
+            </p>
+
+            <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para entregar</h3>
+
+            <p class="text-sm text-gray-300">
+                <strong style="color: red;">●</strong> Dia 19: Aprofunde de Geografia, Módulo 13
+            </p>
+
+            <p class="text-sm text-gray-300">
+                <strong style="color: red;">●</strong> Dia 20: Leitura do volume 14 de Sociologia para debate em sala
+            </p>
+
+            <p class="text-sm text-gray-300">
+                <strong style="color: red;">●</strong> Dia 21: Até hoje pra entregar Revisão de Geografia
+            </p>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const iconButton = document.getElementById('icon-button');
+        const floatingCard = document.getElementById('floating-card');
+
+        // Adiciona evento de clique no botão
+        iconButton.addEventListener('click', () => {
+            if (floatingCard.classList.contains('hidden')) {
+                floatingCard.classList.remove('hidden');
+                floatingCard.classList.add('show');
+            } else {
+                floatingCard.classList.remove('show');
+                floatingCard.classList.add('hidden');
+            }
+        });
+
+        // Fecha o card se clicar fora
+        document.addEventListener('click', (event) => {
+            if (!iconButton.contains(event.target) && !floatingCard.contains(event.target)) {
+                floatingCard.classList.remove('show');
+                floatingCard.classList.add('hidden');
+            }
+        });
+    </script>
+
     </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <div id="overlay" class="overlay hidden"></div>
     <main class="p-4 z-0">
