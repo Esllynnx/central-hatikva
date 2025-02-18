@@ -37,12 +37,16 @@
 </main>
 
 <script>
+    function removeAccents(str) {
+        return str.normalize("NFD").replace(/[̀-ͯ]/g, "");
+    }
+
     function filterByTitle() {
-        const input = document.getElementById('filterInput').value.toLowerCase();
+        const input = removeAccents(document.getElementById('filterInput').value.toLowerCase());
         const cards = document.querySelectorAll('#cards-container div');
         
         cards.forEach(card => {
-            const title = card.querySelector('h3').innerText.toLowerCase();
+            const title = removeAccents(card.querySelector('h3').innerText.toLowerCase());
             if (title.includes(input)) {
                 card.classList.remove('filtered-card');
             } else {
