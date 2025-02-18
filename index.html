@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!DOCTYPE html><html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +8,28 @@
 <body class="flex items-center justify-center h-screen bg-gray-900">
     <div class="w-96 bg-gray-800 text-white shadow-lg rounded-2xl p-6">
         <h1 class="text-3xl font-bold text-center mb-6">Login</h1>
-        <input type="text" placeholder="Nome" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
-        <input type="password" placeholder="Senha" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
-        <button onclick="window.location.href='inicio.html?token=123456'" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-all">Entrar</button>
+        <input id="username" type="text" placeholder="Nome" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <input id="password" type="password" placeholder="Senha" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button id="loginButton" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-all">Entrar</button>
+        <div id="loading" class="hidden flex justify-center mt-4">
+            <div class="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+        </div>
     </div>
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function() {
+            const validUsers = ["arlindo", "esllyjunior", "isaac"];
+            const username = document.getElementById("username").value.trim().normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
+            const password = document.getElementById("password").value;
+            const loading = document.getElementById("loading");if (validUsers.includes(username) && password === "123456") {
+            loading.classList.remove("hidden");
+            setTimeout(() => {
+                window.location.href = 'inicio.html?token=123456';
+            }, 2000);
+        } else {
+            alert("Nome ou senha incorretos!");
+        }
+    });
+</script>
+
 </body>
 </html>
