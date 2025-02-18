@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Atividades</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .filtered-card {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="bg-gray-800 p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-green-400">Minhas Atividades</h1>
+        <button class="text-white text-2xl" onclick="toggleSidebar()">☰</button>
+    </header>
+
+    <aside id="sidebar" class="fixed left-0 top-0 w-64 h-full bg-gray-800 transform -translate-x-full transition-transform p-4 z-10">
+        <button class="text-white text-2xl mb-4" onclick="toggleSidebar()">✕</button>
+        <nav class="flex flex-col space-y-2">
+            <a href="#" class="text-green-400 font-semibold text-lg" onclick="filterCards('Assunto das Provas')">Assunto das Provas</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Gramática')">Gramática</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Literatura')">Literatura</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Matemática')">Matemática</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('História')">História</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Sociologia')">Sociologia</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Física')">Física</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Filosofia')">Filosofia</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Geografia')">Geografia</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Artes')">Artes</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Espanhol')">Espanhol</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Inglês')">Inglês</a>
+            <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Química')">Química</a>
+        </nav>
+    </aside>
+    
+    <div id="overlay" class="overlay hidden"></div>
+
+    <main class="p-4 z-0">
+        <section class="mt-4">
+            <h2 class="text-lg font-semibold mb-2">Atividades Enviadas</h2>
+            <div class="grid grid-cols-2 gap-4" id="cards-container">
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Química" onclick="abrirModal('Exercício 7 de Química', 'Eslly', '7. Calcule a variação de entalpia a partir dos dados fornecidos<br><br>2CH4(g) + O²(g) -> 2CH³ OH(l)<br><br>Dado que:<br><br>I. CH4(g) + H²O(g) -> C4(g) + 3H²(g)<br>∆H¹= +206KJ<br><br>II. 2H²(g) + C0(g) -> CH³OH(l)<br>∆H²= -128KJ<br><br>III. 2H²(g) + O²(g) -> CH³OH(l) -> 2H²O(g)<br>∆H³= -483KJ<br><br>I. x2<br>II. x2<br>III. mantém<br><br>2CH4 + 2̶H̶²̶0̶ -> 2Co + 6̶H̶²̶<br>4H + 2Co -> 2CHOH<br>2H²² + O² -> 2H²O³<br><br>∆H = ∆H¹ + ∆H² + ∆H³<br>∆H = 412 - 256 - 483<br>∆H = 412 - 739<br>∆H = -327KJ<br><br>R = -327KJ')">
+                    <h3 class="text-xl font-bold">Exercício 7 de Química</h3>
+                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                </div>
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Química" onclick="abrirModal('Exercício 6 de Inglês', 'Eslly', 'Resposta: d \n \nSolução: \n \n2N²+SO -> 2N²N5O \n2H²+O² -> 2H²O \n2N²O5+2H²O -> 4HNO³ \n2N²+60+2H² -> 2HNO³ \n \n2N²+SO² -> 2N²SO² \n \n∆H= +571KJ \n∆H= +153,2KJ \n∆H=696,4KJ \n \n∆H= 571,5 \n153,2 + \n------ \n-696 \n \nOBS: Só sei até aí pq não entendi a letra de Arlindo 👍')">
+                    <h3 class="text-xl font-bold">Exercício 6 de Química</h3>
+                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+        <div class="bg-gray-800 w-full h-full flex flex-col p-6">
+            <button class="self-end text-white text-2xl mb-4" onclick="fecharModal()">✕</button>
+            <h3 id="modalTitulo" class="text-3xl font-bold mb-2 text-left"></h3>
+            <p id="modalAutor" class="text-lg text-gray-400 text-left mb-4"></p>
+            <div class="bg-gray-700 p-4 rounded-lg w-full h-full text-white overflow-auto">
+                <div id="modalConteudo" class="w-full h-full bg-gray-700 text-white p-2 border-none outline-none resize-none"></div>
+            </div>
+        </div>
+    </div>
+
+    <button id="clearFilterButton" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hidden" onclick="clearFilter()">Limpar Filtro</button>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+            document.getElementById('overlay').classList.toggle('hidden');
+        }
+
+        function abrirModal(titulo, autor, conteudo) {
+            document.getElementById('modalTitulo').innerText = titulo;
+            document.getElementById('modalAutor').innerText = 'Enviado por: ' + autor;
+            const conteudoElement = document.getElementById('modalConteudo');
+            conteudoElement.innerHTML = conteudo.replace(/\n/g, '<br>');
+            document.getElementById('modal').classList.remove('hidden');
+            document.getElementById('overlay').classList.remove('hidden');
+        }
+
+        function fecharModal() {
+            document.getElementById('modal').classList.add('hidden');
+            document.getElementById('overlay').classList.add('hidden');
+        }
+
+        function filterCards(materia) {
+    const cards = document.querySelectorAll('[data-materia]');
+    let anyVisible = false;
+    let anyFiltered = false;  // Variável para detectar se algum filtro foi aplicado
+
+    cards.forEach(card => {
+        if (card.dataset.materia.toLowerCase() === materia.toLowerCase()) {
+            card.classList.remove('filtered-card');
+            anyVisible = true;
+        } else {
+            card.classList.add('filtered-card');
+        }
+        // Verificar se algum card foi filtrado
+        if (card.classList.contains('filtered-card')) {
+            anyFiltered = true;
+        }
+    });
+
+    // Exibe o botão de limpar filtro sempre que um filtro for aplicado
+    if (anyFiltered || anyVisible) {
+        document.getElementById('clearFilterButton').classList.remove('hidden');
+    }
+}
+
+function clearFilter() {
+    const cards = document.querySelectorAll('[data-materia]');
+    cards.forEach(card => {
+        card.classList.remove('filtered-card');
+    });
+    document.getElementById('clearFilterButton').classList.add('hidden');
+}
+
+
+        // Fechar a barra lateral ao clicar fora dela
+        document.getElementById('overlay').addEventListener('click', function () {
+            toggleSidebar();
+        });
+    </script>
+</body>
+</html>

@@ -1,38 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rede Social Simples</title>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js"></script>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .post { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
-        .post strong { color: #333; }
-        textarea { width: 100%; height: 80px; margin-bottom: 10px; }
-        button { padding: 10px 20px; background: green; color: white; border: none; cursor: pointer; }
-        button:hover { background: darkgreen; }
-    </style>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h1>Rede Social Simples</h1>
-
-    <div id="login-section">
-        <input id="email" type="email" placeholder="E-mail">
-        <input id="password" type="password" placeholder="Senha">
-        <button onclick="login()">Entrar</button>
-        <button onclick="signup()">Cadastrar</button>
+<body class="flex items-center justify-center h-screen bg-gray-900">
+    <div class="w-96 bg-gray-800 text-white shadow-lg rounded-2xl p-6">
+        <h1 class="text-3xl font-bold text-center mb-6">Login</h1>
+        <input type="text" placeholder="Nome" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <input type="password" placeholder="Senha" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button onclick="window.location.href='inicio.html?token=123456'" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-all">Entrar</button>
     </div>
-
-    <div id="post-section" style="display: none;">
-        <textarea id="content" placeholder="Escreva seu post..."></textarea>
-        <button onclick="createPost()">Publicar</button>
-        <div id="posts"></div>
-        <button onclick="logout()">Sair</button>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
