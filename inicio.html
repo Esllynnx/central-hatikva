@@ -41,6 +41,26 @@
     </nav>
 </aside>
 
+<script>
+    function removerAcentos(texto) {
+        return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    }
+
+    function searchCards() {
+        const searchText = removerAcentos(document.getElementById('searchInput').value.toLowerCase());
+        const cards = document.querySelectorAll('#cards-container div');
+        
+        cards.forEach(card => {
+            const title = removerAcentos(card.querySelector('h3').innerText.toLowerCase());
+            if (title.includes(searchText)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+</script>
+
 <div id="overlay" class="overlay hidden"></div>
 <main class="p-4 z-0">
     <section class="mt-4">
