@@ -31,42 +31,14 @@
 <body class="bg-gray-900 text-white">
     <header class="bg-gray-800 p-4 flex justify-between items-center">
         <h1 class="text-xl font-bold text-green-400">Minhas Atividades</h1>
-        <button class="text-white text-2xl" onclick="toggleSidebar()">☰</button>
-    </header><aside id="sidebar" class="fixed left-0 top-0 w-64 h-full bg-gray-800 transform -translate-x-full transition-transform p-4 z-10">
-    <button class="text-white text-2xl mb-4" onclick="toggleSidebar()">✕</button>
-    <nav class="flex flex-col space-y-2">
-        <a href="#" class="text-green-400 font-semibold text-lg" onclick="filterCards('Assunto das Provas')">Assunto das Provas</a>
-        <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Gramática')">Gramática</a>
-        <a href="#" class="hover:text-green-400 text-lg" onclick="filterCards('Literatura')">Literatura</a>
-    </nav>
-</aside>
+    </header>
 
-<script>
-    function removerAcentos(texto) {
-        return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "");
-    }
-
-    function searchCards() {
-        const searchText = removerAcentos(document.getElementById('searchInput').value.toLowerCase());
-        const cards = document.querySelectorAll('#cards-container div');
-        
-        cards.forEach(card => {
-            const title = removerAcentos(card.querySelector('h3').innerText.toLowerCase());
-            if (title.includes(searchText)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    }
-</script>
-
-<div id="overlay" class="overlay hidden"></div>
-<main class="p-4 z-0">
-    <section class="mt-4">
-        <h2 class="text-lg font-semibold mb-2">Atividades Enviadas</h2>
-        <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar atividades..." onkeyup="searchCards()">
-        <div class="grid grid-cols-2 gap-4" id="cards-container">
+    <div id="overlay" class="overlay hidden"></div>
+    <main class="p-4 z-0">
+        <section class="mt-4">
+            <h2 class="text-lg font-semibold mb-2">Atividades Enviadas</h2>
+            <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar atividades..." onkeyup="searchCards()">
+            <div class="grid grid-cols-2 gap-4" id="cards-container">
             
 
 
