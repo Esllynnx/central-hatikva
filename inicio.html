@@ -137,12 +137,16 @@
         document.getElementById('overlay').classList.add('hidden');
     }
 
+       function removerAcentos(texto) {
+        return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    }
+
     function searchCards() {
-        const searchText = document.getElementById('searchInput').value.toLowerCase();
+        const searchText = removerAcentos(document.getElementById('searchInput').value.toLowerCase());
         const cards = document.querySelectorAll('#cards-container div');
         
         cards.forEach(card => {
-            const title = card.querySelector('h3').innerText.toLowerCase();
+            const title = removerAcentos(card.querySelector('h3').innerText.toLowerCase());
             if (title.includes(searchText)) {
                 card.style.display = "block";
             } else {
