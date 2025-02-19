@@ -17,7 +17,7 @@
     </div>
     <script>
         document.getElementById("loginButton").addEventListener("click", function() {
-            const validUsers = ["arlindo", "esllyjunior", "isaac"];
+            const validUsers = ["arlindo", "esllyjunior", "isaac", "alana", "samuel", "miriam", "pedro", "isaias", "antony", "antoin", "maria luiza", "maria clara", "luandra", "giovanna", "giovana", "rebeca", "rebecca"];
             const username = document.getElementById("username").value.trim().normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
             const password = document.getElementById("password").value;
             const loading = document.getElementById("loading");if (validUsers.includes(username) && password === "123456") {
