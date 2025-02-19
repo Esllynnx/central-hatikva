@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1F2937;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+        header {
+            background-color: #374151;
+            color: #10B981;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .download-card {
+            background-color: #374151;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+        .download-card:hover {
+            transform: translateY(-10px);
+        }
+        .card-content {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #2D3748;
+        }
+        .download-btn {
+            display: block;
+            width: 100%;
+            background-color: #10B981;
+            padding: 14px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 0 0 16px 16px;
+            transition: background 0.3s, transform 0.1s;
+            text-transform: uppercase;
+        }
+        .download-btn:active {
+            background-color: #059669;
+            transform: scale(0.97);
+        }
+        .download-btn:hover {
+            background-color: #059669;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Arquivos enviados pelos professores
+    </header>
+    <main class="p-4 max-w-2xl mx-auto">
+        <div class="space-y-4">
+            <div class="download-card">
+                <div class="card-content">
+                    <span>Texto1 - 2º Médio - Treinamento Funcional</span>
+                </div>
+                <a href="documentos/Texto1_Treinamento_Funcional.pdf" class="download-btn text-white" download>Baixar</a>
+            </div>
+
+            <div class="download-card">
+                <div class="card-content">
+                    <span>Texto 2 - 2º Médio - Musculação: Mitos e Verdades</span>
+                </div>
+                <a href="documentos/Texto2_Musculacao_Mitos_Verdades.pdf" class="download-btn text-white" download>Baixar</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
