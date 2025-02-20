@@ -11,22 +11,7 @@
 
 
 
-    <script>
-        // Função para verificar o token na URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-    
-        // Verifica se o token é válido e se o login foi feito corretamente
-        const token = getQueryParam('token');
-        const loggedIn = localStorage.getItem('loggedIn'); // Verifica se o login foi realizado
-    
-        if (token !== '123456' || loggedIn !== 'true') {
-            alert("Acesso negado! Você precisa fazer login.");
-            window.location.href = 'index.html'; // Redireciona para a página de login
-        }
-    </script>
+
     
 
 
