@@ -132,91 +132,123 @@
     <div class="relative">
         <!-- Ícone com nova cor -->
         <i class="fa-solid fa-calendar-check text-green text-xl cursor-pointer" id="icon-button"></i>
+    
+        <!-- Balão de fala abaixo do ícone -->
+        <div id="notification-bubble" class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-red-500 text-white text-xs font-bold py-1 px-2 rounded-full hidden">
+            Novo!
+        </div>
+    
         <!-- Card com borda ajustada -->
         <div style="z-index: 2;" id="floating-card" class="absolute right-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg border-gray-700 w-64 p-4 hidden overflow-auto max-h-64">
             <h3 class="text-lg font-bold mb-2">1º Bimestre</h3>
-
+    
             <a href="tabela.html" class="link-estilizado">
                 Ver Cronograma de Provas
-              </a>
-              
-              <style>
+            </a>
+    
+            <style>
                 .link-estilizado {
-                  font-size: 1rem; /* Tamanho da fonte */
-                  font-weight: bold; /* Deixa o texto em negrito */
-                  color: rgb(96, 219, 174); /* Cor do texto */
-                  text-decoration: underline; /* Sublinhar o texto */
-                  text-decoration-color: rgba(52, 211, 153, var(--tw-text-opacity)); /* Cor do sublinhado */
+                    font-size: 1rem; /* Tamanho da fonte */
+                    font-weight: bold; /* Deixa o texto em negrito */
+                    color: rgb(96, 219, 174); /* Cor do texto */
+                    text-decoration: underline; /* Sublinhar o texto */
+                    text-decoration-color: rgba(52, 211, 153, var(--tw-text-opacity)); /* Cor do sublinhado */
                 }
-              </style>
-                                 
-              
+            </style>
 
+
+
+
+
+
+
+
+
+    
             <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para fazer</h3>
-
+    
             <p class="text-sm text-gray-300">
                 <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Fazer Revisão de Geografia
             </p>
-
+    
             <p class="text-sm text-gray-300">
                 <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Fazer atividade do módulo 14 de Geografia | Páginas 38 e 39
             </p>
-
+    
             <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para entregar</h3>
-
-
+    
             <p class="text-sm text-gray-300">
                 <strong style="color: red;">●</strong> Dia 20: Leitura do volume 14 de Sociologia para debate em sala
             </p>
-
+    
             <p class="text-sm text-gray-300">
                 <strong style="color: red;">●</strong> Dia 21: Até hoje pra entregar Revisão de Geografia
             </p>
-
+    
             <p class="text-sm text-gray-300">
                 <strong style="color: red;">●</strong> Dia 21: Entregar atividade do módulo 14 de Geografia | Páginas 38 e 39
             </p>
 
 
+
+
+
+
+
+
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     <script>
         const iconButton = document.getElementById('icon-button');
+        const notificationBubble = document.getElementById('notification-bubble');
         const floatingCard = document.getElementById('floating-card');
-
-        // Adiciona evento de clique no botão
-        iconButton.addEventListener('click', () => {
-            if (floatingCard.classList.contains('hidden')) {
-                floatingCard.classList.remove('hidden');
-                floatingCard.classList.add('show');
+    
+        // Função para verificar se o balão já foi fechado pelo usuário
+        function checkNotificationStatus() {
+            const isNotificationDismissed = localStorage.getItem('notification-dismissed');
+    
+            if (isNotificationDismissed === 'true') {
+                notificationBubble.classList.add('hidden');
             } else {
-                floatingCard.classList.remove('show');
-                floatingCard.classList.add('hidden');
+                notificationBubble.classList.remove('hidden');
             }
+        }
+    
+        // Função para forçar a exibição do balão de notificação sempre que houver uma alteração
+        function triggerNotification() {
+            // Armazena a mudança na agenda no localStorage
+            localStorage.setItem('houveMudanca', 'true');
+            notificationBubble.classList.remove('hidden');
+        }
+    
+        // Monitoramento de alterações no conteúdo da agenda
+        function monitorChanges() {
+            // Força a exibição do balão sempre que o conteúdo for alterado
+            triggerNotification();
+        }
+    
+        // Quando o usuário clicar no ícone, abrir o card e esconder o balão
+        iconButton.addEventListener('click', () => {
+            floatingCard.classList.toggle('hidden');
+            notificationBubble.classList.add('hidden');
+            localStorage.setItem('notification-dismissed', 'true'); // Salva o estado de "balão fechado"
         });
-
-        // Fecha o card se clicar fora
-        document.addEventListener('click', (event) => {
-            if (!iconButton.contains(event.target) && !floatingCard.contains(event.target)) {
-                floatingCard.classList.remove('show');
-                floatingCard.classList.add('hidden');
-            }
-        });
+    
+        // Verifica o status da notificação ao carregar a página
+        checkNotificationStatus();
+    
+        // Se houve mudança na agenda, o balão aparece
+        let houveMudanca = localStorage.getItem('houveMudanca') === 'true'; 
+    
+        if (houveMudanca) {
+            notificationBubble.classList.remove('hidden');
+        }
+    
+        // Inicia a monitorização das alterações
+        monitorChanges();
     </script>
+    
 
     </header>
 
