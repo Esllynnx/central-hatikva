@@ -1,35 +1,102 @@
-<!DOCTYPE html><html lang="pt-br">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Bem-vindo</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes fadeSlideIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
-<body class="flex items-center justify-center h-screen bg-gray-900">
-    <div class="w-96 bg-gray-800 text-white shadow-lg rounded-2xl p-6">
+<body class="h-screen bg-gray-900 flex items-center justify-center">
+    <div id="welcomeScreen" class="text-center animate-fadeSlideIn" style="animation: fadeSlideIn 1s ease-out forwards;">
+        <img src="logo.png" alt="Logo" class="mx-auto mb-4 w-32 h-32 rounded-full border-4 border-green-500">
+        <h1 class="text-4xl font-bold text-green-500 mb-2">Bem-vindo!</h1>
+        <p class="text-gray-300 mb-6">Faça o Login para entrar na Plataforma</p>
+        <button 
+            onclick="showLoginScreen()"
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-400">
+            Entrar
+        </button>
+    </div>
+
+    <div id="loginScreen" class="hidden w-96 bg-gray-800 text-white shadow-lg rounded-2xl p-6">
         <h1 class="text-3xl font-bold text-center mb-6">Login</h1>
-        <input id="username" type="text" placeholder="Nome" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
-        <input id="password" type="password" placeholder="Senha" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500">
-        <button id="loginButton" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-all">Entrar</button>
+        <input id="username" type="text" placeholder="Nome" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500" style="animation: popIn 0.3s ease-out forwards; animation-delay: 0.2s; opacity: 0;">
+        <input id="password" type="password" placeholder="Senha" class="w-full p-3 text-black rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-green-500" style="animation: popIn 0.3s ease-out forwards; animation-delay: 0.4s; opacity: 0;">
+        <div class="flex items-center mb-4" style="animation: popIn 0.3s ease-out forwards; animation-delay: 0.5s; opacity: 0;">
+            <input id="saveLogin" type="checkbox" class="w-4 h-4 text-green-500 border-gray-300 rounded focus:ring-2 focus:ring-green-500">
+            <label for="saveLogin" class="ml-2 text-sm text-gray-300">Salvar informações de login</label>
+        </div>
+        <button id="loginButton" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition-all" style="animation: popIn 0.3s ease-out forwards; animation-delay: 0.6s; opacity: 0;">Entrar</button>
         <div id="loading" class="hidden flex justify-center mt-4">
             <div class="w-6 h-6 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
         </div>
     </div>
+    
     <script>
+        // Função para exibir a tela de login
+        function showLoginScreen() {
+            document.getElementById('welcomeScreen').classList.add('hidden');
+            const loginScreen = document.getElementById('loginScreen');
+            loginScreen.classList.remove('hidden');
+    
+            // Carregar informações salvas, se existirem
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+            if (savedUsername && savedPassword) {
+                document.getElementById('username').value = savedUsername;
+                document.getElementById('password').value = savedPassword;
+                document.getElementById('saveLogin').checked = true;
+            }
+        }
+    
+        // Função de login
         document.getElementById("loginButton").addEventListener("click", function() {
             const validUsers = ["arlindo", "esllyjunior", "isaac", "alana", "samuel", "miriam", "pedro", "isaias", "antony", "antoin", "maria luiza", "maria clara", "luandra", "giovanna", "giovana", "rebeca", "rebecca"];
             const username = document.getElementById("username").value.trim().normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase();
             const password = document.getElementById("password").value;
-            const loading = document.getElementById("loading");if (validUsers.includes(username) && password === "123456") {
-            loading.classList.remove("hidden");
-            setTimeout(() => {
-                window.location.href = 'inicio.html?token=123456';
-            }, 2000);
-        } else {
-            alert("Nome ou senha incorretos!");
-        }
-    });
-</script>
-
+            const saveLogin = document.getElementById("saveLogin").checked;
+            const loading = document.getElementById("loading");
+    
+            if (validUsers.includes(username) && password === "123456") {
+                if (saveLogin) {
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('password', password);
+                } else {
+                    localStorage.removeItem('username');
+                    localStorage.removeItem('password');
+                }
+                loading.classList.remove("hidden");
+                setTimeout(() => {
+                    window.location.href = 'inicio.html?token=123456';
+                }, 2000);
+            } else {
+                alert("Nome ou senha incorretos!");
+            }
+        });
+    </script>
+    
 </body>
 </html>
