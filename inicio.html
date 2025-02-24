@@ -152,10 +152,12 @@
         <!-- Ícone com nova cor -->
         <i class="fa-solid fa-calendar-check text-green text-xl cursor-pointer" id="icon-button"></i>
     
-        <!-- Balão de fala abaixo do ícone -->
-        <div id="notification-bubble" class="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 bg-red-500 text-white text-xs font-bold py-1 px-2 rounded-full hidden">
-            Novo!
-        </div>
+<!-- Balão de fala abaixo do ícone -->
+<div id="notification-bubble" class="absolute top-full right-0 mt-1 bg-red-500 text-white text-xs font-bold py-1 px-2 rounded-full hidden">
+    Novo!
+</div>
+
+
     
         <!-- Card com borda ajustada -->
         <div style="z-index: 2;" id="floating-card" class="absolute right-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg border-gray-700 w-64 p-4 hidden overflow-auto max-h-64">
@@ -187,13 +189,16 @@
             <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para fazer</h3>
 
             <p class="text-sm text-gray-300">
-                <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Produza um texto sobre "Combate do uso indiscriminado das tecnologias digitais de informações para adolescentes." (Marcar os elementos coesivos)
+                <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Nenhuma Atividade encontrada.
             </p>
     
             <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para entregar</h3>
     
             <p class="text-sm text-gray-300">
-                <strong style="color: red;">●</strong> Nenhuma atividade encontrada.
+                <strong style="color: red;">●</strong> Dia 25: Levar volume 13 de Sociologia
+            </p>
+            <p class="text-sm text-gray-300">
+                <strong style="color: red;">●</strong> Dia 26: Levar volume 13 de Artes
             </p>
 
 
@@ -284,86 +289,156 @@
             </ul>
         </div>
 
-        <div style="display: flex; align-items: center; width: 100%; position: relative;">
-            <hr style="flex-grow: 1; border: none; border-top: 2px solid rgba(239, 68, 68, var(--tw-bg-opacity));">
-            <span style="padding: 0 10px; font-weight: bold; color: rgba(239, 68, 68, var(--tw-bg-opacity));">Novo!</span>
-            <hr style="flex-grow: 1; border: none; border-top: 2px solid rgba(239, 68, 68, var(--tw-bg-opacity));">
+        <style>
+            .maisopcoes-btn {
+                display: block;
+                width: 90%;
+                max-width: 350px;
+                margin: auto;
+                padding: 12px;
+                text-align: center;
+                background-color: #10B981;
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                border-radius: 12px;
+                text-decoration: none;
+                cursor: pointer;
+                transition: background 0.3s;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+            .maisopcoes-btn:hover {
+                background-color: #059669;
+            }
+            .maisopcoes-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease-in-out;
+                z-index: 9999;
+            }
+            .maisopcoes-card {
+                background: #2D3748;
+                padding: 24px;
+                border-radius: 16px;
+                text-align: center;
+                width: 90%;
+                max-width: 360px;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                transform: translateY(20px);
+                transition: transform 0.3s ease-in-out;
+            }
+            .maisopcoes-card a {
+                display: block;
+                padding: 14px;
+                margin: 12px 0;
+                background: #10B981;
+                color: white;
+                text-decoration: none;
+                border-radius: 12px;
+                transition: background 0.3s;
+                font-size: 16px;
+                font-weight: bold;
+            }
+            .maisopcoes-card a:hover {
+                background: #059669;
+            }
+            .maisopcoes-close {
+                background: #10B981;
+                border: none;
+                color: white;
+                font-size: 24px;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 20px;
+            }
+            .maisopcoes-container.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .maisopcoes-container.active .maisopcoes-card {
+                transform: translateY(0);
+            }
+        </style>
+        
+        <a href="#" class="maisopcoes-btn">Mais opções</a>
+        
+        <div class="maisopcoes-container" id="maisopcoes">
+            <div class="maisopcoes-card">
+                <a href="simulado.html">Resultado do Simulado</a>
+                <a href="revisao.html">Revisões</a>
+                <a href="documentos.html">Arquivos dos Professores</a>
+            </div>
+            <button class="maisopcoes-close" onclick="fecharMaisOpcoes()">✖</button>
         </div>
+        
+        <script>
+            const btn = document.querySelector('.maisopcoes-btn');
+            const popup = document.getElementById('maisopcoes');
+        
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                popup.classList.add('active');
+            });
+        
+            function fecharMaisOpcoes() {
+                popup.classList.remove('active');
+            }
+        </script>
+                
 
-        <a href="simulado.html" style="display: block; width: 96%; margin: 12px auto; padding: 8px; text-align: center; background-color: rgba(16, 185, 129, 1); color: white; font-size: 15px; font-weight: bold; border-radius: 6px; text-decoration: none;">
-            Gabarito do simulado
-        </a>
 
-        <a href="documentos.html" style="display: block; width: 96%; margin: 12px auto; padding: 8px; text-align: center; background-color: rgba(16, 185, 129, 1); color: white; font-size: 15px; font-weight: bold; border-radius: 6px; text-decoration: none;">
-            Ver arquivos passados pelos professores
-        </a>
 
-        <section class="mt-4">
-            <h2 class="text-lg font-semibold mb-2">Para a Prova</h2>
-            <div class="grid grid-cols-2 gap-4" id="cards-container">              
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
-                    <h3 class="text-xl font-bold">Revisão de Inglês com Resposta</h3>
-                    <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
-                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
-                </div>
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de História com Resposta', 'Eslly', '1°) Entre as mudanças ocorridas no Brasil colônia durante a união Ibérica destacam-se:\n\n❌ a) A introdução do tráfico negreiro, a invasão dos holandeses no nordeste e o início da produção de tabaco na Bacia do Recôncavo Baiano.\n✅ b) A expulsão da ocupação interna pela pecuária, a expulsão dos franceses e o crescimento do bandeirismo.\n❌ c) A expansão da economia açucareira no nordeste, o estreitamento das relações com a Inglaterra e a expulsão dos jesuítas.\n\n2°) O interesse dos holandeses em ocupar áreas no Brasil está relacionado com:\n\n❌ a) A conquista territorial de pontos estratégicos ligados à exploração da prata.\n✅ b) As barreiras impostas pela Espanha ao comércio dos holandeses no Brasil.\n❌ c) Os acordos preferenciais firmados entre Portugal e Inglaterra no comércio açucareiro.\n\n3°) Em 1587, Dom Sebastião ri de batalha, o Alcácer Quibir. Sem descendentes, o trono é assumido por um parente espanhol, Felipe II, que dois anos depois anexa Portugal à Espanha. Depois de uma longa disputa, a coroa portuguesa acaba sendo assumida por Felipe IV, responsável por transformar os Países Baixos em um tradicional inimigo espanhol. Dos episódios acima, resultam aqueles que se tornam inimigos de Portugal.\n\n✅ a) Holanda\n❌ b) Alemanha\n❌ c) Itália\n\n4°) A invasão e ocupação holandesa no nordeste do Brasil, ocorrida durante o período da União Ibérica:\n\n❌ a) Derivaram dos conflitos internos entre Portugal e Espanha, que resultaram na Confederação do Equador.\n❌ b) Foram resultados das disputas entre Holanda e Inglaterra pelo controle da navegação comercial atlântica.\n✅ c) Derivaram dos interesses holandeses na produção e comercialização de açúcar de cana.\n\n5°) As invasões holandesas no Brasil, no século XVII, estavam relacionadas à necessidade de os Países Baixos manterem e ampliarem sua hegemonia no comércio de açúcar na Europa, que havia sido interrompido:\n\n❌ a) Pela política pombalina, que destinava a desenvolver e simplificar o comércio de açúcar na própria colônia, com apoio dos ingleses.\n✅ b) Pela guerra de independência dos Países Baixos contra a Espanha e, em consequência, reflexos na colônia portuguesa, devido à União Ibérica.\n❌ c) Pelos interesses comerciais dos flamengos, que estavam presentes no Maranhão, em relação ao açúcar.\n\n6°) Uma das principais consequências do domínio holandês para o Brasil foi:\n\n❌ a) A alucinação do bandeirantismo paulista, cuja pontuação foi alvo do Tratado de Tordesilhas diversas vezes.\n✅ b) A inovação na academia de letras e posterior influência cultural econômica brasileira, com a fixação de holandeses nas Antilhas.\n❌ c) A aceleração dos movimentos dos nativistas de tendência emancipadora, como guerra dos Emboabas.\n\n7°) Assinale a alternativa incorreta:\n\n❌ a) As disputas pelo mercado de açúcar foram decisivas para que os holandeses invadissem o Brasil.\n✅ b) Portugal não demonstrou interesse em expulsar os holandeses do Brasil, mesmo após o término da União Ibérica.\n❌ c) Apesar dos conflitos, holandeses e portugueses tinham a visão de dominação que se preocupava em aumentar suas riquezas.')">
-                    <h3 class="text-xl font-bold">Revisão de História com Resposta</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="mt-4">  
+            <h2 class="text-lg font-semibold mb-2">Atividades Enviadas</h2>
+            <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar atividades..." onkeyup="searchCards()">
+
+
+
+
+
+
+
+            <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
+            <div class="grid grid-cols-2 gap-4" id="cards-container">
+
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Exercício 8 de Química com Resposta', 'Eslly', '8. A cor vermelha de certos fogos de artifício é devida ao carbonato de estrôncio, cuja formação é representada pela equação:\n\n5Sr(s) + C(grafite) + (3/2)O₂(g) → 5SrCO₃(s)\n\nΔH = ?\n\nSendo dados:\n\nI.\n5Sr(s) + (1/2)O₂(g) → 5SrO(s)  ΔH₁ = -592 kJ\n\nII.\n5SrO(s) + C(s) + CO₂(g) → 5SrCO₃(s)  ΔH₂ = -234 kJ\n\nIII.\nCH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O  ΔH₃ = -213 kcal\n\nPode-se afirmar que a entalpia de formação do carbonato de estrôncio em kJ/mol é:\n\na) -628\nb) -986\nc) +986\nd) -1320\ne) +1120')">
+                    <h3 class="text-xl font-bold">Exercício 8 de Química com Resposta</h3>
                     <p class="text-sm text-gray-400">Enviado por: Eslly</p>
                     <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                 </div>
-            
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
-                data-materia="Assunto das Provas" 
-                onclick="abrirModal('Revisão de Geografia com Resposta', 'Eslly', '1 – Diferencie as ideias da população sobre as teorias: \n a) Malthusiana – População cresce mais que os recursos. \n b) Neomalthusiana – Defende controle de natalidade. \n c) Reformista/Marxista – Problema é a má distribuição de renda. \n\n2 – Quais são os motivos que fizeram a expectativa de vida subir consideravelmente nos últimos séculos? Explique. \nMedicina, saneamento e vacinas aumentaram a expectativa de vida. \n\n3 – Explique a diferença entre a densidade demográfica e população absoluta. \nDensidade: população/área. \nPopulação absoluta: total de habitantes. \n\n4 – Identifique as diferenças entre o coeficiente de Gini e o IDH, ambos importantes para análise dos estudos demográficos. \nGini mede desigualdade de renda, IDH mede qualidade de vida. \n\n5 – Qual a diferença nas pirâmides etárias dos países desenvolvidos e países em desenvolvimento? \nDesenvolvidos: topo largo, base estreita. \nEm desenvolvimento: base larga, topo estreito.')">
-               
-               <!-- Aviso levemente inclinado e mais para a direita -->
-               <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
-                   FEITO COM I.A
-               </div>
-           
-               <!-- Conteúdo principal -->
-               <h2 class="text-white font-bold text-lg">Revisão de Geografia com Resposta</h2>
-               <p class="text-gray-400 text-sm">Enviado por: Eslly</p>
-           </div>
-           
-
-    </div>  
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <section class="mt-4">
-
-            
-            <h2 class="text-lg font-semibold mb-2">Atividades Enviadas</h2>
-            <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar atividades..." onkeyup="searchCards()">
-            <div class="grid grid-cols-2 gap-4" id="cards-container">
 
                 <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
 data-materia="Assunto das Provas" 

@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Atividades</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+    <style>
+        h1, h2, h3, h4, p, .text-white {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+        .filtered-card {
+            display: none;
+        }
+        .filter-input {
+            background-color: #1f2937;
+            color: white;
+            border: 1px solid #4ade80;
+            padding: 8px;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        /* Esconde o conteúdo para telas maiores que 768px */
+@media (min-width: 768px) {
+  body {
+    display: none;
+  }
+}
+
+/* Exibe o conteúdo normalmente em telas menores que 768px */
+@media (max-width: 767px) {
+  body {
+    display: block;
+  }
+}
+
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <header class="bg-gray-800 p-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold text-green-400">Minhas Atividades</h1>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Flutuante</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .relative {
+            position: relative;
+        }
+        .absolute {
+            position: absolute;
+        }
+        .hidden {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+        .shadow-lg {
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+        .bg-gray-800 {
+            background-color: #2d3748;
+        }
+        .text-gray-300 {
+            color: #d1d5db;
+        }
+        .text-white {
+            color: #fff;
+        }
+        .cursor-pointer {
+            cursor: pointer;
+        }
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        .p-4 {
+            padding: 1rem;
+        }
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+        .right-0 {
+            right: 0;
+        }
+        .max-h-64 {
+            max-height: 16rem;
+        }
+        .w-64 {
+            width: 16rem;
+        }
+        .overflow-auto {
+            overflow: auto;
+        }
+        /* Borda do card */
+        .border-gray-700 {
+            border: 1px solid #4a5568; /* Cor ligeiramente mais clara que o fundo */
+        }
+        /* Cor do ícone */
+        .text-green {
+            color: rgba(52, 211, 153, var(--tw-text-opacity));
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+    
+    <script>
+        const iconButton = document.getElementById('icon-button');
+        const notificationBubble = document.getElementById('notification-bubble');
+        const floatingCard = document.getElementById('floating-card');
+    
+        // Função para verificar se o balão já foi fechado pelo usuário
+        function checkNotificationStatus() {
+            const isNotificationDismissed = localStorage.getItem('notification-dismissed');
+    
+            if (isNotificationDismissed === 'true') {
+                notificationBubble.classList.add('hidden');
+            } else {
+                notificationBubble.classList.remove('hidden');
+            }
+        }
+    
+        // Função para forçar a exibição do balão de notificação sempre que houver uma alteração
+        function triggerNotification() {
+            // Armazena a mudança na agenda no localStorage
+            localStorage.setItem('houveMudanca', 'true');
+            notificationBubble.classList.remove('hidden');
+        }
+    
+        // Monitoramento de alterações no conteúdo da agenda
+        function monitorChanges() {
+            // Força a exibição do balão sempre que o conteúdo for alterado
+            triggerNotification();
+        }
+    
+        // Quando o usuário clicar no ícone, abrir o card e esconder o balão
+        iconButton.addEventListener('click', () => {
+            floatingCard.classList.toggle('hidden');
+            notificationBubble.classList.add('hidden');
+            localStorage.setItem('notification-dismissed', 'true'); // Salva o estado de "balão fechado"
+        });
+    
+        // Verifica o status da notificação ao carregar a página
+        checkNotificationStatus();
+    
+        // Se houve mudança na agenda, o balão aparece
+        let houveMudanca = localStorage.getItem('houveMudanca') === 'true'; 
+    
+        if (houveMudanca) {
+            notificationBubble.classList.remove('hidden');
+        }
+    
+        // Inicia a monitorização das alterações
+        monitorChanges();
+    </script>
+    
+
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div id="overlay" class="overlay hidden"></div>
+    <main class="p-4 z-0">
+        <section class="mt-4">
+
+            <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar revisões..." onkeyup="searchCards()">
+
+            <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
+            <div class="grid grid-cols-2 gap-4" id="cards-container">
+
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
+                    <h3 class="text-xl font-bold">Revisão de Inglês com Resposta</h3>
+                    <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
+                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                </div>
+
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de História com Resposta', 'Eslly', '1°) Entre as mudanças ocorridas no Brasil colônia durante a união Ibérica destacam-se:\n\n❌ a) A introdução do tráfico negreiro, a invasão dos holandeses no nordeste e o início da produção de tabaco na Bacia do Recôncavo Baiano.\n✅ b) A expulsão da ocupação interna pela pecuária, a expulsão dos franceses e o crescimento do bandeirismo.\n❌ c) A expansão da economia açucareira no nordeste, o estreitamento das relações com a Inglaterra e a expulsão dos jesuítas.\n\n2°) O interesse dos holandeses em ocupar áreas no Brasil está relacionado com:\n\n❌ a) A conquista territorial de pontos estratégicos ligados à exploração da prata.\n✅ b) As barreiras impostas pela Espanha ao comércio dos holandeses no Brasil.\n❌ c) Os acordos preferenciais firmados entre Portugal e Inglaterra no comércio açucareiro.\n\n3°) Em 1587, Dom Sebastião ri de batalha, o Alcácer Quibir. Sem descendentes, o trono é assumido por um parente espanhol, Felipe II, que dois anos depois anexa Portugal à Espanha. Depois de uma longa disputa, a coroa portuguesa acaba sendo assumida por Felipe IV, responsável por transformar os Países Baixos em um tradicional inimigo espanhol. Dos episódios acima, resultam aqueles que se tornam inimigos de Portugal.\n\n✅ a) Holanda\n❌ b) Alemanha\n❌ c) Itália\n\n4°) A invasão e ocupação holandesa no nordeste do Brasil, ocorrida durante o período da União Ibérica:\n\n❌ a) Derivaram dos conflitos internos entre Portugal e Espanha, que resultaram na Confederação do Equador.\n❌ b) Foram resultados das disputas entre Holanda e Inglaterra pelo controle da navegação comercial atlântica.\n✅ c) Derivaram dos interesses holandeses na produção e comercialização de açúcar de cana.\n\n5°) As invasões holandesas no Brasil, no século XVII, estavam relacionadas à necessidade de os Países Baixos manterem e ampliarem sua hegemonia no comércio de açúcar na Europa, que havia sido interrompido:\n\n❌ a) Pela política pombalina, que destinava a desenvolver e simplificar o comércio de açúcar na própria colônia, com apoio dos ingleses.\n✅ b) Pela guerra de independência dos Países Baixos contra a Espanha e, em consequência, reflexos na colônia portuguesa, devido à União Ibérica.\n❌ c) Pelos interesses comerciais dos flamengos, que estavam presentes no Maranhão, em relação ao açúcar.\n\n6°) Uma das principais consequências do domínio holandês para o Brasil foi:\n\n❌ a) A alucinação do bandeirantismo paulista, cuja pontuação foi alvo do Tratado de Tordesilhas diversas vezes.\n✅ b) A inovação na academia de letras e posterior influência cultural econômica brasileira, com a fixação de holandeses nas Antilhas.\n❌ c) A aceleração dos movimentos dos nativistas de tendência emancipadora, como guerra dos Emboabas.\n\n7°) Assinale a alternativa incorreta:\n\n❌ a) As disputas pelo mercado de açúcar foram decisivas para que os holandeses invadissem o Brasil.\n✅ b) Portugal não demonstrou interesse em expulsar os holandeses do Brasil, mesmo após o término da União Ibérica.\n❌ c) Apesar dos conflitos, holandeses e portugueses tinham a visão de dominação que se preocupava em aumentar suas riquezas.')">
+                    <h3 class="text-xl font-bold">Revisão de História com Resposta</h3>
+                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                </div>
+            
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
+                data-materia="Assunto das Provas" 
+                onclick="abrirModal('Revisão de Geografia com Resposta', 'Eslly', '1 – Diferencie as ideias da população sobre as teorias: \n a) Malthusiana – População cresce mais que os recursos. \n b) Neomalthusiana – Defende controle de natalidade. \n c) Reformista/Marxista – Problema é a má distribuição de renda. \n\n2 – Quais são os motivos que fizeram a expectativa de vida subir consideravelmente nos últimos séculos? Explique. \nMedicina, saneamento e vacinas aumentaram a expectativa de vida. \n\n3 – Explique a diferença entre a densidade demográfica e população absoluta. \nDensidade: população/área. \nPopulação absoluta: total de habitantes. \n\n4 – Identifique as diferenças entre o coeficiente de Gini e o IDH, ambos importantes para análise dos estudos demográficos. \nGini mede desigualdade de renda, IDH mede qualidade de vida. \n\n5 – Qual a diferença nas pirâmides etárias dos países desenvolvidos e países em desenvolvimento? \nDesenvolvidos: topo largo, base estreita. \nEm desenvolvimento: base larga, topo estreito.')">
+               
+               <!-- Aviso levemente inclinado e mais para a direita -->
+               <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
+                   FEITO COM I.A
+               </div>
+           
+               <!-- Conteúdo principal -->
+               <h2 class="text-white font-bold text-lg">Revisão de Geografia com Resposta</h2>
+               <p class="text-gray-400 text-sm">Enviado por: Eslly</p>
+           </div>
+
+    </div>  
+</section>
+
+
+
+</main>
+
+<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+    <div class="bg-gray-800 w-full h-full flex flex-col p-6">
+        <button class="self-end text-white text-2xl mb-4" onclick="fecharModal()">✕</button>
+        <h3 id="modalTitulo" class="text-3xl font-bold mb-2 text-left"></h3>
+        <p id="modalAutor" class="text-lg text-gray-400 text-left mb-4"></p>
+        <div class="bg-gray-700 p-4 rounded-lg w-full h-full text-white overflow-auto">
+            <div id="modalConteudo" class="w-full h-full bg-gray-700 text-white p-2 border-none outline-none resize-none"></div>
+        </div>
+    </div>
+</div>
+
+<button id="clearFilterButton" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hidden" onclick="clearFilter()">Limpar Filtro</button>
+
+<script>
+    function toggleSidebar() {
+        document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        document.getElementById('overlay').classList.toggle('hidden');
+    }
+
+    function abrirModal(titulo, autor, conteudo) {
+        document.getElementById('modalTitulo').innerText = titulo;
+        document.getElementById('modalAutor').innerText = 'Enviado por: ' + autor;
+        document.getElementById('modalConteudo').innerHTML = conteudo.replace(/\n/g, '<br>');
+        document.getElementById('modal').classList.remove('hidden');
+        document.getElementById('overlay').classList.remove('hidden');
+    }
+
+    function fecharModal() {
+        document.getElementById('modal').classList.add('hidden');
+        document.getElementById('overlay').classList.add('hidden');
+    }
+
+       function removerAcentos(texto) {
+        return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "");
+    }
+
+    function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+function searchCards() {
+    let input = normalizeText(document.getElementById("searchInput").value);
+    let cards = document.querySelectorAll("#cards-container > div");
+
+    cards.forEach(card => {
+        let title = normalizeText(card.querySelector("h3, h2")?.innerText || "");
+        let author = normalizeText(card.querySelector("p")?.innerText || "");
+        let iaTag = normalizeText(card.querySelector(".bg-green-500") ? "feito com ia" : "");
+
+        if (title.includes(input) || author.includes(input) || iaTag.includes(input)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+</script>
+
+</body>
+</html>
