@@ -10,6 +10,31 @@
 
 
 
+    <script>
+        function checkLogin() {
+            const token = localStorage.getItem("loginToken");
+            const expiration = localStorage.getItem("loginExpiration");
+    
+            // Se não estiver logado ou sessão expirou, redireciona para index.html
+            if (!token || !expiration || Date.now() > parseInt(expiration)) {
+                localStorage.removeItem("loginToken");
+                localStorage.removeItem("loginExpiration");
+                window.location.href = "index.html";
+            }
+        }
+    
+        checkLogin();
+    
+        // Atualiza o tempo de expiração a cada interação do usuário
+        document.addEventListener("mousemove", updateSessionTime);
+        document.addEventListener("keydown", updateSessionTime);
+    
+        function updateSessionTime() {
+            if (localStorage.getItem("loginToken")) {
+                localStorage.setItem("loginExpiration", Date.now() + 10 * 60 * 1000);
+            }
+        }
+    </script>
 
 
     
