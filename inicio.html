@@ -76,19 +76,7 @@
             margin-bottom: 15px;
         }
 
-        /* Esconde o conteúdo para telas maiores que 768px */
-@media (min-width: 768px) {
-  body {
-    display: none;
-  }
-}
 
-/* Exibe o conteúdo normalmente em telas menores que 768px */
-@media (max-width: 767px) {
-  body {
-    display: block;
-  }
-}
 
     </style>
 </head>
@@ -165,6 +153,17 @@
         .text-green {
             color: rgba(52, 211, 153, var(--tw-text-opacity));
         }
+        header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+body {
+    padding-top: 60px; /* Adapte esse valor ao tamanho do seu header para evitar sobreposição */
+}
+
     </style>
 </head>
 <body>
@@ -308,144 +307,14 @@
 
 
 
-    <div id="overlay" class="overlay hidden"></div>
-    <main class="p-4 z-0">
-        <div class="border-2 border-green-500 bg-green-900 text-white p-4 rounded-lg shadow-lg mb-4">
-            <h2 class="text-xl font-bold">✅ Novidades na Atualização</h2>
-            <ul class="list-disc pl-5 mt-2">
-                <li>Baixar arquivos que os professores enviam.</li>
-                <li>Agora as Atividades geradas por Inteligência Artificial são identificados com um selo exclusivo!</li>
-                <li>Novo sistema de Agendas interligado com a Central.</li>
-            </ul>
-        </div>
 
-        <style>
-            .maisopcoes-btn {
-                display: block;
-                width: 90%;
-                max-width: 350px;
-                margin: auto;
-                padding: 12px;
-                text-align: center;
-                background-color: #10B981;
-                color: white;
-                font-size: 16px;
-                font-weight: bold;
-                border-radius: 12px;
-                text-decoration: none;
-                cursor: pointer;
-                transition: background 0.3s;
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            }
-            .maisopcoes-btn:hover {
-                background-color: #059669;
-            }
-            .maisopcoes-container {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-direction: column;
-                opacity: 0;
-                visibility: hidden;
-                transition: opacity 0.3s ease-in-out;
-                z-index: 9999;
-            }
-            .maisopcoes-card {
-                background: #2D3748;
-                padding: 24px;
-                border-radius: 16px;
-                text-align: center;
-                width: 90%;
-                max-width: 360px;
-                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-                transform: translateY(20px);
-                transition: transform 0.3s ease-in-out;
-            }
-            .maisopcoes-card a {
-                display: block;
-                padding: 14px;
-                margin: 12px 0;
-                background: #10B981;
-                color: white;
-                text-decoration: none;
-                border-radius: 12px;
-                transition: background 0.3s;
-                font-size: 16px;
-                font-weight: bold;
-            }
-            .maisopcoes-card a:hover {
-                background: #059669;
-            }
-            .maisopcoes-close {
-                background: #10B981;
-                border: none;
-                color: white;
-                font-size: 24px;
-                cursor: pointer;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: 20px;
-            }
-            .maisopcoes-container.active {
-                opacity: 1;
-                visibility: visible;
-            }
-            .maisopcoes-container.active .maisopcoes-card {
-                transform: translateY(0);
-            }
-        </style>
-        
-        <a href="#" class="maisopcoes-btn">Mais opções</a>
-        
-        <div class="maisopcoes-container" id="maisopcoes">
-            <div class="maisopcoes-card">
-                <a href="simulado.html">Resultado do Simulado</a>
-                <a href="revisao.html">Revisões</a>
-                <a href="documentos.html">Arquivos dos Professores</a>
-                <hr>
-                <a style="background-color: rgba(239, 68, 68, var(--tw-bg-opacity));;" href="#" id="logoutButton">Sair</a>
 
-                <script>
-                    document.getElementById("logoutButton").addEventListener("click", function(event) {
-                        event.preventDefault(); // Impede o comportamento padrão do link
+
                         
-                        // Remover credenciais do localStorage
-                        localStorage.removeItem("loginToken");
-                        localStorage.removeItem("loginExpiration");
-                
-                        // Redirecionar para index.html
-                        window.location.href = "index.html";
-                    });
-                </script>
-                
-            </div>
-            <button class="maisopcoes-close" onclick="fecharMaisOpcoes()">✖</button>
-        </div>
-        
-        <script>
-            const btn = document.querySelector('.maisopcoes-btn');
-            const popup = document.getElementById('maisopcoes');
-        
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                popup.classList.add('active');
-            });
-        
-            function fecharMaisOpcoes() {
-                popup.classList.remove('active');
-            }
-        </script>
-                
+
+
+
+                        <div class="main-content">
 
 
 
@@ -453,16 +322,257 @@
 
 
 
+                            <div id="overlay" class="overlay hidden"></div>
+                            <main class="p-4 z-0">
+                                <div class="border-2 border-green-500 bg-green-900 text-white p-4 rounded-lg shadow-lg mb-4">
+                                    <h2 class="text-xl font-bold">✅ Novidades na Atualização</h2>
+                                    <ul class="list-disc pl-5 mt-2">
+                                        <li>Baixar arquivos que os professores enviam.</li>
+                                        <li>Agora as Atividades geradas por Inteligência Artificial são identificados com um selo exclusivo!</li>
+                                        <li>Novo sistema de Agendas interligado com a Central.</li>
+                                    </ul>
+                                </div>
 
 
 
 
+                                <style>
+                                    /* Botão de abrir menu (visível apenas em telas menores) */
+                                    .maisopcoes-btn {
+                                        display: block;
+                                        width: 90%;
+                                        max-width: 350px;
+                                        margin: auto;
+                                        padding: 12px;
+                                        text-align: center;
+                                        background-color: #10B981;
+                                        color: white;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                        border-radius: 12px;
+                                        text-decoration: none;
+                                        cursor: pointer;
+                                        transition: background 0.3s;
+                                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                                    }
+                                    .maisopcoes-btn:hover {
+                                        background-color: #059669;
+                                    }
+                                    
+                                    /* Estilos para telas menores (menu como popup) */
+                                    .maisopcoes-container {
+                                        position: fixed;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: rgba(0, 0, 0, 0.7);
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                        opacity: 0;
+                                        visibility: hidden;
+                                        transition: opacity 0.3s ease-in-out;
+                                        z-index: 9999;
+                                    }
+                                    .maisopcoes-container.active {
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                    
+                                    .maisopcoes-card {
+                                        background: #2D3748;
+                                        padding: 24px;
+                                        border-radius: 16px;
+                                        text-align: center;
+                                        width: 90%;
+                                        max-width: 360px;
+                                        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                                        transform: translateY(20px);
+                                        transition: transform 0.3s ease-in-out;
+                                    }
+                                    .maisopcoes-container.active .maisopcoes-card {
+                                        transform: translateY(0);
+                                    }
+                                    
+                                    .maisopcoes-card a {
+                                        display: block;
+                                        padding: 14px;
+                                        margin: 12px 0;
+                                        background: #10B981;
+                                        color: white;
+                                        text-decoration: none;
+                                        border-radius: 12px;
+                                        transition: color 0.3s;
+                                        font-size: 16px;
+                                        font-weight: bold;
+                                    }
+                                    .maisopcoes-card a:hover {
+                                        color: #10B981;
+                                    }
+                                    
+                                    /* Botão de fechar menu (só aparece em telas menores) */
+                                    .maisopcoes-close {
+                                        background: #10B981;
+                                        border: none;
+                                        color: white;
+                                        font-size: 24px;
+                                        cursor: pointer;
+                                        width: 50px;
+                                        height: 50px;
+                                        border-radius: 50%;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        margin-top: 20px;
+                                    }
+                                    
+                                    /* Estilos para telas maiores (menu lateral fixo) */
+                                    @media (min-width: 1024px) {
+                                        /* Oculta o botão de abrir menu */
+                                        .maisopcoes-btn {
+                                            display: none;
+                                        }
+                                    
+                                        /* Deixa o menu fixo na lateral esquerda */
+                                        .maisopcoes-container {
+                                            position: fixed;
+                                            top: 0;
+                                            left: 0;
+                                            width: 250px;
+                                            height: 100vh;
+                                            background: none;
+                                            display: flex;
+                                            align-items: flex-start;
+                                            justify-content: flex-start;
+                                            flex-direction: column;
+                                            padding: 20px;
+                                            box-shadow: none;
+                                            opacity: 1;
+                                            visibility: visible;
+                                        }
+                                    
+                                        /* O conteúdo da página é empurrado para não sobrepor o menu */
+                                        .main-content {
+                                            margin-left: 250px;
+                                        }
+                                    
+                                        /* Ajustes no design do menu */
+                                        .maisopcoes-card {
+                                            width: 100%;
+                                            max-width: none;
+                                            background: none;
+                                            box-shadow: none;
+                                            padding: 0;
+                                        }
+                                        .maisopcoes-card a {
+                                            width: 100%;
+                                            text-align: left;
+                                            padding: 12px;
+                                            font-size: 14px;
+                                            color: white;
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 10px;
+                                            background: none;
+                                        }
+                                        .maisopcoes-card a::before {
+                                            font-family: "Font Awesome 5 Free";
+                                            font-weight: 900;
+                                        }
+                                        .maisopcoes-card a[href="simulado.html"]::before { content: "\f1d8"; color: #10B981; }
+                                        .maisopcoes-card a[href="revisao.html"]::before { content: "\f70e"; color: #10B981; }
+                                        .maisopcoes-card a[href="documentos.html"]::before { content: "\f56d"; color: #10B981; }
+                                        .maisopcoes-card a[href="#"]::before { content: "\f2f5"; color: rgba(239, 68, 68); }
+                                    
+                                        /* Hover altera apenas a cor do texto */
+                                        .maisopcoes-card a:hover {
+                                            color: #10B981;
+                                        }
+                                    
+                                        /* Oculta o botão de fechar */
+                                        .maisopcoes-close {
+                                            display: none;
+                                        }
+                                    }
+                                    /* Ajustes para o botão "Sair" em telas menores */
+@media (max-width: 1023px) {
+    #logoutButton {
+        background: rgba(239, 68, 68, var(--tw-bg-opacity)); /* Cor de fundo igual à cor do texto */
+        color: white;
+        padding: 14px;
+        border-radius: 12px;
+        display: block;
+        text-align: center;
+        font-weight: bold;
+    }
 
+    /* Removendo hover verde em telas menores */
+    .maisopcoes-card a:hover {
+        color: white; /* Mantém a cor padrão ao passar o mouse */
+    }
+}
 
+/* Ajuste de espaçamento para o botão "Resultado do Simulado" */
+.maisopcoes-card a[href="simulado.html"] {
+    margin-top: 30px; /* Espaço extra acima do botão */
+}
 
+/* Hover verde mantido apenas para telas maiores */
+@media (min-width: 1024px) {
+    .maisopcoes-card a:hover {
+        color: #10B981;
+    }
+}
+@media (max-width: 1023px) {
+    #logoutButton {
+        color: white !important; /* Garante que o texto "Sair" fique branco */
+    }
+}
 
+@media (min-width: 1024px) {
+    #logoutButton i {
+        display: none; /* Oculta o ícone em telas maiores */
+    }
+}
 
-
+                                </style>
+                                
+                                <a href="#" class="maisopcoes-btn">Mais opções</a>
+                                
+                                <div class="maisopcoes-container" id="maisopcoes">
+                                    <div class="maisopcoes-card">
+                                        <a href="simulado.html"> Resultado do Simulado</a>
+                                        <a href="revisao.html"> Revisões</a>
+                                        <a href="documentos.html"> Arquivos dos Professores</a>
+                                        <hr>
+                                        <a style="color: red;" href="#" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+                                    </div>
+                                    <button class="maisopcoes-close" onclick="fecharMaisOpcoes()">✖</button>
+                                </div>
+                                
+                                <script>
+                                    const btn = document.querySelector('.maisopcoes-btn');
+                                    const popup = document.getElementById('maisopcoes');
+                                
+                                    btn.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        popup.classList.add('active');
+                                    });
+                                
+                                    function fecharMaisOpcoes() {
+                                        popup.classList.remove('active');
+                                    }
+                                
+                                    document.getElementById("logoutButton").addEventListener("click", function(event) {
+                                        event.preventDefault();
+                                        localStorage.removeItem("loginToken");
+                                        localStorage.removeItem("loginExpiration");
+                                        window.location.href = "index.html";
+                                    });
+                                </script>
+                                
 
 
 
@@ -542,7 +652,7 @@ onclick="abrirModal('APROFUNDE de Geografia Mód 14 / Pág 38 e 39', 'Eslly', 'P
 
 </main>
 
-<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+<div style="z-index: 99999999999999999999999;" id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
     <div class="bg-gray-800 w-full h-full flex flex-col p-6">
         <button class="self-end text-white text-2xl mb-4" onclick="fecharModal()">✕</button>
         <h3 id="modalTitulo" class="text-3xl font-bold mb-2 text-left"></h3>

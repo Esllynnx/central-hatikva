@@ -2,9 +2,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minhas Atividades</title>
+    <title>Revisões</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+
 
 
 
@@ -35,8 +37,6 @@
             }
         }
     </script>
-
-
     
 
 
@@ -45,9 +45,11 @@
 
     
     <style>
-        * {
+
+* {
   user-select: none;
 }
+
         h1, h2, h3, h4, p, .text-white {
   font-family: 'Poppins', sans-serif !important;
 }
@@ -74,25 +76,13 @@
             margin-bottom: 15px;
         }
 
-        /* Esconde o conteúdo para telas maiores que 768px */
-@media (min-width: 768px) {
-  body {
-    display: none;
-  }
-}
 
-/* Exibe o conteúdo normalmente em telas menores que 768px */
-@media (max-width: 767px) {
-  body {
-    display: block;
-  }
-}
 
     </style>
 </head>
 <body class="bg-gray-900 text-white">
     <header class="bg-gray-800 p-4 flex justify-between items-center">
-        <h1 class="text-xl font-bold text-green-400">Minhas Atividades</h1>
+        <h1 class="text-xl font-bold text-green-400">Minhas Revisões</h1>
         <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,6 +153,17 @@
         .text-green {
             color: rgba(52, 211, 153, var(--tw-text-opacity));
         }
+        header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+body {
+    padding-top: 60px; /* Adapte esse valor ao tamanho do seu header para evitar sobreposição */
+}
+
     </style>
 </head>
 <body>
@@ -176,6 +177,61 @@
 
 
 
+
+
+
+    
+        <!-- Card com borda ajustada -->
+        <div style="z-index: 2;" id="floating-card" class="absolute right-0 mt-2 bg-gray-800 text-white rounded-lg shadow-lg border-gray-700 w-64 p-4 hidden overflow-auto max-h-64">
+            <h3 class="text-lg font-bold mb-2">1º Bimestre</h3>
+    
+            <a href="tabela.html" class="link-estilizado">
+                Ver Cronograma de Provas
+            </a>
+    
+            <style>
+                .link-estilizado {
+                    font-size: 1rem; /* Tamanho da fonte */
+                    font-weight: bold; /* Deixa o texto em negrito */
+                    color: rgb(96, 219, 174); /* Cor do texto */
+                    text-decoration: underline; /* Sublinhar o texto */
+                    text-decoration-color: rgba(52, 211, 153, var(--tw-text-opacity)); /* Cor do sublinhado */
+                }
+            </style>
+
+
+
+
+
+
+
+
+
+    
+            <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para fazer</h3>
+
+            <p class="text-sm text-gray-300">
+                <strong style="color: rgba(52, 211, 153, var(--tw-text-opacity));">●</strong> Nenhuma Atividade encontrada.
+            </p>
+    
+            <h3 style="margin-top: 20px;" class="text-lg font-bold mb-2">Para entregar</h3>
+    
+            <p class="text-sm text-gray-300">
+                <strong style="color: red;">●</strong> Dia 25: Levar volume 13 de Sociologia
+            </p>
+            <p class="text-sm text-gray-300">
+                <strong style="color: red;">●</strong> Dia 26: Levar volume 13 de Artes
+            </p>
+
+
+
+
+
+
+
+
+        </div>
+    </div>
     
     <script>
         const iconButton = document.getElementById('icon-button');
@@ -244,65 +300,327 @@
 
 
 
-    <div id="overlay" class="overlay hidden"></div>
-    <main class="p-4 z-0">
-        <section class="mt-4">
 
-            <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar revisões..." onkeyup="searchCards()">
 
-            <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
-            <div class="grid grid-cols-2 gap-4" id="cards-container">
 
-<div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
-data-materia="Assunto das Provas" 
-onclick="abrirModal('Resumo da Prova de Ed. Física', 'Arlindo', 'Resumo Ed. Física\n\n* Treinamento funcional funciona?\n\nSegundo a Base Nacional Comum Curricular (BNCC) o objetivo da matéria nos anos finais é (melhorar o aluno como pessoa, embelezar seu corpo e lidar com seus sentimentos e relações sociais).\n\n84% dos jovens de 11 a 17 anos são sedentários. Acredita-se que este número é resultado da nova rotina cada vez mais intensa e uso excessivo de eletrônicos.\n\n* Treinamento funcional: Tipos de exercícios de alta potência também treinamento esportivo.\n\n* Benefícios: Aumento da força, resistência, velocidade, coordenação, flexibilidade e fortalecimento do core.\n\nNa antiguidade, o treinamento funcional era usado como preparação de soldados para guerras e depois foi usado para reabilitação de pacientes e cirurgias, tratamentos musculoesqueléticos.\nApós um tempo começaram a aderir suas práticas para preparo e reabilitação de atletas.\n\n* Musculação: Mitos e Verdades\n\n- Toxina os músculos\n\nMusculação é o treinamento entre resistência usando métodos da modalidade para melhorar força muscular. Trazia inspiração por Eugene Sandow (Pai do fisiculturismo) em 1902, além dele, o campeão Milo (Grécia).\n\nO Gasto de Energia Diário (GED) é calculado em base o\nTaxa Metabólica nos Repousos (TMR), Termogênese induzida pela dieta (TID) e Atividade Física (AF).\n\n* Mitos\n\n❮❮ Treinar mais sem sempre é a solução (repouso/alimentação)\n Abdômen não emagrece e apenas fortalece o core \n \n Anabolizantes\n\n➜ drogas derivadas da testosterona que provocam crescimento nos músculos, porém causam problemas estéticos e de saúde.\n\n- Crescimento dos pelos\n- Deregulação sanguínea\n- Alteração na voz\n- Depressão\n- Câncer\n- Impotência sexual\n- Mudanças de temperamento')">
-<div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
-   NÃO OFICIAL
-</div>
-<h2 class="text-white font-bold text-lg">Resumo da Prova de Ed. Física</h2>
-<p class="text-gray-400 text-sm">Enviado por: Arlindo</p>
-</div>
+                        
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Filosofia com Resposta', 'Eslly', 'Filosofia - Revisão\n\n1- Tomás de Aquino fala sobre a possibilidade do ser humano conhecer a verdade divina, ele diz que Deus. A primeira refere-se que o ser humano não consegue entender que Deus é Uno e Trino. A segunda modalizade, por exemplo, que Deus existe.\n\nA partir dessa citação, indique a alternativa que melhor expressa o pensamento de Tomás de Aquino:\n\n❌ a) A fé é o único meio do ser humano chegar à verdade.\n❌ b) O ser humano só alcança o conhecimento graças à revelação da verdade que Deus lhe concede.\n✅ c) Mesmo limitada, a razão humana é capaz de alcançar certas verdades por seus meios naturais.\n❌ d) A filosofia é capaz de todas as verdades acerca de Deus.\n❌ e) Deus é um ser absolutamente misterioso e o ser humano nada pode conhecer dEle.\n\n2- Uma das preocupações de certa escola filosófica consistia em platonicar os gêneros e as espécies aristotélicas são substâncias reais, Reflexões da história da filosofia:\n\n❌ a) Pré-socrática\n❌ b) Filosofia Antiga\n✅ c) Filosofia Medieval\n❌ d) Filosofia Moderna\n❌ e) Filosofia Contemporânea\n\n3- A doutrina de Platão influenciou os primeiros filósofos medievais. Santo Agostinho, bispo de Hipona (354 a 430), e Boécio (480 a 524), autores de Confissões e Consolação da Filosofia, respectivamente. Mas a filosofia que predominou na Idade Média foi a:\n\n❌ a) Sofística\n❌ b) Epicurista\n✅ c) Escolástica\n❌ d) Existencialista\n\n4- No século XIII surgiu a Escolástica, corrente filosófica que, a partir de então, dominou o pensamento medieval.\n\n❌ a) Teve em Santo Agostinho seu maior expoente e era teocêntrica.\n❌ b) Teve em Alberto Magno seu maior expoente e rejeitava, prezando o antropocentrismo.\n✅ c) Teve em Tomás de Aquino seu principal expoente e foi uma tentativa de harmonizar a razão com a fé.\n❌ d) Considerava que a razão possa proporcionar uma visão completa e unificada da natureza e da sociedade.\n\n5 - Considere o trecho abaixo\n\nQuando, pois, se trata das coisas que percebemos pela mente, estamos falando ainda em coisas que vemos e iluminado de que julga o homem interior.\n\nSegundo o pensamento de Santo Agostinho, as verdades contidas na filosofia pagã e cristãs:\n\n❌ a) De fonte diferente de onde emanam as verdades cristãs, pois há oposição entre as verdades pagãs e verdades cristãs.\n❌ b) Da mesma fonte de onde emanam verdades cristãs, pois não há verdades pagãs e cristãs.\n✅ c) De Platão, poder chegando a contribuir a ideia suprema do bem.')">
-                    <h3 class="text-xl font-bold">Revisão de Filosofia com Resposta</h3>
-                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
-                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
-                </div>
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
-                    <h3 class="text-xl font-bold">Revisão de Inglês com Resposta</h3>
-                    <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
-                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
-                </div>
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de História com Resposta', 'Eslly', '1°) Entre as mudanças ocorridas no Brasil colônia durante a união Ibérica destacam-se:\n\n❌ a) A introdução do tráfico negreiro, a invasão dos holandeses no nordeste e o início da produção de tabaco na Bacia do Recôncavo Baiano.\n✅ b) A expulsão da ocupação interna pela pecuária, a expulsão dos franceses e o crescimento do bandeirismo.\n❌ c) A expansão da economia açucareira no nordeste, o estreitamento das relações com a Inglaterra e a expulsão dos jesuítas.\n\n2°) O interesse dos holandeses em ocupar áreas no Brasil está relacionado com:\n\n❌ a) A conquista territorial de pontos estratégicos ligados à exploração da prata.\n✅ b) As barreiras impostas pela Espanha ao comércio dos holandeses no Brasil.\n❌ c) Os acordos preferenciais firmados entre Portugal e Inglaterra no comércio açucareiro.\n\n3°) Em 1587, Dom Sebastião ri de batalha, o Alcácer Quibir. Sem descendentes, o trono é assumido por um parente espanhol, Felipe II, que dois anos depois anexa Portugal à Espanha. Depois de uma longa disputa, a coroa portuguesa acaba sendo assumida por Felipe IV, responsável por transformar os Países Baixos em um tradicional inimigo espanhol. Dos episódios acima, resultam aqueles que se tornam inimigos de Portugal.\n\n✅ a) Holanda\n❌ b) Alemanha\n❌ c) Itália\n\n4°) A invasão e ocupação holandesa no nordeste do Brasil, ocorrida durante o período da União Ibérica:\n\n❌ a) Derivaram dos conflitos internos entre Portugal e Espanha, que resultaram na Confederação do Equador.\n❌ b) Foram resultados das disputas entre Holanda e Inglaterra pelo controle da navegação comercial atlântica.\n✅ c) Derivaram dos interesses holandeses na produção e comercialização de açúcar de cana.\n\n5°) As invasões holandesas no Brasil, no século XVII, estavam relacionadas à necessidade de os Países Baixos manterem e ampliarem sua hegemonia no comércio de açúcar na Europa, que havia sido interrompido:\n\n❌ a) Pela política pombalina, que destinava a desenvolver e simplificar o comércio de açúcar na própria colônia, com apoio dos ingleses.\n✅ b) Pela guerra de independência dos Países Baixos contra a Espanha e, em consequência, reflexos na colônia portuguesa, devido à União Ibérica.\n❌ c) Pelos interesses comerciais dos flamengos, que estavam presentes no Maranhão, em relação ao açúcar.\n\n6°) Uma das principais consequências do domínio holandês para o Brasil foi:\n\n❌ a) A alucinação do bandeirantismo paulista, cuja pontuação foi alvo do Tratado de Tordesilhas diversas vezes.\n✅ b) A inovação na academia de letras e posterior influência cultural econômica brasileira, com a fixação de holandeses nas Antilhas.\n❌ c) A aceleração dos movimentos dos nativistas de tendência emancipadora, como guerra dos Emboabas.\n\n7°) Assinale a alternativa incorreta:\n\n❌ a) As disputas pelo mercado de açúcar foram decisivas para que os holandeses invadissem o Brasil.\n✅ b) Portugal não demonstrou interesse em expulsar os holandeses do Brasil, mesmo após o término da União Ibérica.\n❌ c) Apesar dos conflitos, holandeses e portugueses tinham a visão de dominação que se preocupava em aumentar suas riquezas.')">
-                    <h3 class="text-xl font-bold">Revisão de História com Resposta</h3>
-                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
-                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
-                </div>
-            
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
-                data-materia="Assunto das Provas" 
-                onclick="abrirModal('Revisão de Geografia com Resposta', 'Eslly', '1 – Diferencie as ideias da população sobre as teorias: \n a) Malthusiana – População cresce mais que os recursos. \n b) Neomalthusiana – Defende controle de natalidade. \n c) Reformista/Marxista – Problema é a má distribuição de renda. \n\n2 – Quais são os motivos que fizeram a expectativa de vida subir consideravelmente nos últimos séculos? Explique. \nMedicina, saneamento e vacinas aumentaram a expectativa de vida. \n\n3 – Explique a diferença entre a densidade demográfica e população absoluta. \nDensidade: população/área. \nPopulação absoluta: total de habitantes. \n\n4 – Identifique as diferenças entre o coeficiente de Gini e o IDH, ambos importantes para análise dos estudos demográficos. \nGini mede desigualdade de renda, IDH mede qualidade de vida. \n\n5 – Qual a diferença nas pirâmides etárias dos países desenvolvidos e países em desenvolvimento? \nDesenvolvidos: topo largo, base estreita. \nEm desenvolvimento: base larga, topo estreito.')">
-               
-               <!-- Aviso levemente inclinado e mais para a direita -->
-               <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
-                   FEITO COM I.A
-               </div>
-           
-               <!-- Conteúdo principal -->
-               <h2 class="text-white font-bold text-lg">Revisão de Geografia com Resposta</h2>
-               <p class="text-gray-400 text-sm">Enviado por: Eslly</p>
-           </div>
+                        <div class="main-content">
 
-    </div>  
-</section>
+
+
+
+
+
+
+
+
+
+
+
+                            <style>
+                                /* Botão de abrir menu (visível apenas em telas menores) */
+                                .maisopcoes-btn {
+                                    display: block;
+                                    width: 90%;
+                                    max-width: 350px;
+                                    margin: auto;
+                                    padding: 12px;
+                                    text-align: center;
+                                    background-color: #10B981;
+                                    color: white;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                    border-radius: 12px;
+                                    text-decoration: none;
+                                    cursor: pointer;
+                                    transition: background 0.3s;
+                                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                                }
+                                .maisopcoes-btn:hover {
+                                    background-color: #059669;
+                                }
+                                
+                                /* Estilos para telas menores (menu como popup) */
+                                .maisopcoes-container {
+                                    position: fixed;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    background: rgba(0, 0, 0, 0.7);
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    flex-direction: column;
+                                    opacity: 0;
+                                    visibility: hidden;
+                                    transition: opacity 0.3s ease-in-out;
+                                    z-index: 9999;
+                                }
+                                .maisopcoes-container.active {
+                                    opacity: 1;
+                                    visibility: visible;
+                                }
+                                
+                                .maisopcoes-card {
+                                    background: #2D3748;
+                                    padding: 24px;
+                                    border-radius: 16px;
+                                    text-align: center;
+                                    width: 90%;
+                                    max-width: 360px;
+                                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+                                    transform: translateY(20px);
+                                    transition: transform 0.3s ease-in-out;
+                                }
+                                .maisopcoes-container.active .maisopcoes-card {
+                                    transform: translateY(0);
+                                }
+                                
+                                .maisopcoes-card a {
+                                    display: block;
+                                    padding: 14px;
+                                    margin: 12px 0;
+                                    background: #10B981;
+                                    color: white;
+                                    text-decoration: none;
+                                    border-radius: 12px;
+                                    transition: color 0.3s;
+                                    font-size: 16px;
+                                    font-weight: bold;
+                                }
+                                .maisopcoes-card a:hover {
+                                    color: #10B981;
+                                }
+                                
+                                /* Botão de fechar menu (só aparece em telas menores) */
+                                .maisopcoes-close {
+                                    background: #10B981;
+                                    border: none;
+                                    color: white;
+                                    font-size: 24px;
+                                    cursor: pointer;
+                                    width: 50px;
+                                    height: 50px;
+                                    border-radius: 50%;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    margin-top: 20px;
+                                }
+                                
+                                /* Estilos para telas maiores (menu lateral fixo) */
+                                @media (min-width: 1024px) {
+                                    /* Oculta o botão de abrir menu */
+                                    .maisopcoes-btn {
+                                        display: none;
+                                    }
+                                
+                                    /* Deixa o menu fixo na lateral esquerda */
+                                    .maisopcoes-container {
+                                        position: fixed;
+                                        top: 0;
+                                        left: 0;
+                                        width: 250px;
+                                        height: 100vh;
+                                        background: none;
+                                        display: flex;
+                                        align-items: flex-start;
+                                        justify-content: flex-start;
+                                        flex-direction: column;
+                                        padding: 20px;
+                                        box-shadow: none;
+                                        opacity: 1;
+                                        visibility: visible;
+                                    }
+                                
+                                    /* O conteúdo da página é empurrado para não sobrepor o menu */
+                                    .main-content {
+                                        margin-left: 250px;
+                                    }
+                                
+                                    /* Ajustes no design do menu */
+                                    .maisopcoes-card {
+                                        width: 100%;
+                                        max-width: none;
+                                        background: none;
+                                        box-shadow: none;
+                                        padding: 0;
+                                    }
+                                    .maisopcoes-card a {
+                                        width: 100%;
+                                        text-align: left;
+                                        padding: 12px;
+                                        font-size: 14px;
+                                        color: white;
+                                        display: flex;
+                                        align-items: center;
+                                        gap: 10px;
+                                        background: none;
+                                    }
+                                    .maisopcoes-card a::before {
+                                        font-family: "Font Awesome 5 Free";
+                                        font-weight: 900;
+                                    }
+                                    .maisopcoes-card a[href="inicio.html"]::before { content: "\f015"; color: #10B981; }
+                                    .maisopcoes-card a[href="simulado.html"]::before { content: "\f1d8"; color: #10B981; }
+                                    .maisopcoes-card a[href="revisao.html"]::before { content: "\f70e"; color: #10B981; }
+                                    .maisopcoes-card a[href="documentos.html"]::before { content: "\f56d"; color: #10B981; }
+                                    .maisopcoes-card a[href="#"]::before { content: "\f2f5"; color: rgba(239, 68, 68); }
+                                
+                                    /* Hover altera apenas a cor do texto */
+                                    .maisopcoes-card a:hover {
+                                        color: #10B981;
+                                    }
+                                
+                                    /* Oculta o botão de fechar */
+                                    .maisopcoes-close {
+                                        display: none;
+                                    }
+                                }
+                                /* Ajustes para o botão "Sair" em telas menores */
+@media (max-width: 1023px) {
+#logoutButton {
+    background: red; /* Cor de fundo igual à cor do texto */
+    color: white;
+    padding: 14px;
+    border-radius: 12px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Removendo hover verde em telas menores */
+.maisopcoes-card a:hover {
+    color: white; /* Mantém a cor padrão ao passar o mouse */
+}
+}
+
+/* Ajuste de espaçamento para o botão "Resultado do Simulado" */
+.maisopcoes-card a[href="inicio.html"] {
+margin-top: 30px; /* Espaço extra acima do botão */
+}
+
+/* Hover verde mantido apenas para telas maiores */
+@media (min-width: 1024px) {
+.maisopcoes-card a:hover {
+    color: #10B981;
+}
+}
+@media (max-width: 1023px) {
+#logoutButton {
+    color: white !important; /* Garante que o texto "Sair" fique branco */
+}
+}
+
+@media (min-width: 1024px) {
+#logoutButton i {
+    display: none; /* Oculta o ícone em telas maiores */
+}
+}
+
+                            </style>
+                            
+
+                            
+                            <div class="maisopcoes-container" id="maisopcoes">
+                                <div class="maisopcoes-card">
+                                    <a href="inicio.html"> Início</a>
+                                    <a href="simulado.html"> Resultado do Simulado</a>
+                                    <a href="revisao.html"> Revisões</a>
+                                    <a href="documentos.html"> Arquivos dos Professores</a>
+                                    <hr>
+                                    <a style="color: red;" href="#" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
+                                </div>
+                                <button class="maisopcoes-close" onclick="fecharMaisOpcoes()">✖</button>
+                            </div>                                
+                                <script>
+                                    const btn = document.querySelector('.maisopcoes-btn');
+                                    const popup = document.getElementById('maisopcoes');
+                                
+                                    btn.addEventListener('click', (e) => {
+                                        e.preventDefault();
+                                        popup.classList.add('active');
+                                    });
+                                
+                                    function fecharMaisOpcoes() {
+                                        popup.classList.remove('active');
+                                    }
+                                
+                                    document.getElementById("logoutButton").addEventListener("click", function(event) {
+                                        event.preventDefault();
+                                        localStorage.removeItem("loginToken");
+                                        localStorage.removeItem("loginExpiration");
+                                        window.location.href = "index.html";
+                                    });
+                                </script>
+                                
+
+
+
+
+                                <div id="overlay" class="overlay hidden"></div>
+                                <main class="p-4 z-0">
+                                    <section class="mt-4">
+                            
+                                        <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar revisões..." onkeyup="searchCards()">
+                            
+                                        <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
+                                        <div class="grid grid-cols-2 gap-4" id="cards-container">
+                            
+                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
+                            data-materia="Assunto das Provas" 
+                            onclick="abrirModal('Resumo da Prova de Ed. Física', 'Arlindo', 'Resumo Ed. Física\n\n* Treinamento funcional funciona?\n\nSegundo a Base Nacional Comum Curricular (BNCC) o objetivo da matéria nos anos finais é (melhorar o aluno como pessoa, embelezar seu corpo e lidar com seus sentimentos e relações sociais).\n\n84% dos jovens de 11 a 17 anos são sedentários. Acredita-se que este número é resultado da nova rotina cada vez mais intensa e uso excessivo de eletrônicos.\n\n* Treinamento funcional: Tipos de exercícios de alta potência também treinamento esportivo.\n\n* Benefícios: Aumento da força, resistência, velocidade, coordenação, flexibilidade e fortalecimento do core.\n\nNa antiguidade, o treinamento funcional era usado como preparação de soldados para guerras e depois foi usado para reabilitação de pacientes e cirurgias, tratamentos musculoesqueléticos.\nApós um tempo começaram a aderir suas práticas para preparo e reabilitação de atletas.\n\n* Musculação: Mitos e Verdades\n\n- Toxina os músculos\n\nMusculação é o treinamento entre resistência usando métodos da modalidade para melhorar força muscular. Trazia inspiração por Eugene Sandow (Pai do fisiculturismo) em 1902, além dele, o campeão Milo (Grécia).\n\nO Gasto de Energia Diário (GED) é calculado em base o\nTaxa Metabólica nos Repousos (TMR), Termogênese induzida pela dieta (TID) e Atividade Física (AF).\n\n* Mitos\n\n❮❮ Treinar mais sem sempre é a solução (repouso/alimentação)\n Abdômen não emagrece e apenas fortalece o core \n \n Anabolizantes\n\n➜ drogas derivadas da testosterona que provocam crescimento nos músculos, porém causam problemas estéticos e de saúde.\n\n- Crescimento dos pelos\n- Deregulação sanguínea\n- Alteração na voz\n- Depressão\n- Câncer\n- Impotência sexual\n- Mudanças de temperamento')">
+                            <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
+                               NÃO OFICIAL
+                            </div>
+                            <h2 class="text-white font-bold text-lg">Resumo da Prova de Ed. Física</h2>
+                            <p class="text-gray-400 text-sm">Enviado por: Arlindo</p>
+                            </div>
+                            
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Filosofia com Resposta', 'Eslly', 'Filosofia - Revisão\n\n1- Tomás de Aquino fala sobre a possibilidade do ser humano conhecer a verdade divina, ele diz que Deus. A primeira refere-se que o ser humano não consegue entender que Deus é Uno e Trino. A segunda modalizade, por exemplo, que Deus existe.\n\nA partir dessa citação, indique a alternativa que melhor expressa o pensamento de Tomás de Aquino:\n\n❌ a) A fé é o único meio do ser humano chegar à verdade.\n❌ b) O ser humano só alcança o conhecimento graças à revelação da verdade que Deus lhe concede.\n✅ c) Mesmo limitada, a razão humana é capaz de alcançar certas verdades por seus meios naturais.\n❌ d) A filosofia é capaz de todas as verdades acerca de Deus.\n❌ e) Deus é um ser absolutamente misterioso e o ser humano nada pode conhecer dEle.\n\n2- Uma das preocupações de certa escola filosófica consistia em platonicar os gêneros e as espécies aristotélicas são substâncias reais, Reflexões da história da filosofia:\n\n❌ a) Pré-socrática\n❌ b) Filosofia Antiga\n✅ c) Filosofia Medieval\n❌ d) Filosofia Moderna\n❌ e) Filosofia Contemporânea\n\n3- A doutrina de Platão influenciou os primeiros filósofos medievais. Santo Agostinho, bispo de Hipona (354 a 430), e Boécio (480 a 524), autores de Confissões e Consolação da Filosofia, respectivamente. Mas a filosofia que predominou na Idade Média foi a:\n\n❌ a) Sofística\n❌ b) Epicurista\n✅ c) Escolástica\n❌ d) Existencialista\n\n4- No século XIII surgiu a Escolástica, corrente filosófica que, a partir de então, dominou o pensamento medieval.\n\n❌ a) Teve em Santo Agostinho seu maior expoente e era teocêntrica.\n❌ b) Teve em Alberto Magno seu maior expoente e rejeitava, prezando o antropocentrismo.\n✅ c) Teve em Tomás de Aquino seu principal expoente e foi uma tentativa de harmonizar a razão com a fé.\n❌ d) Considerava que a razão possa proporcionar uma visão completa e unificada da natureza e da sociedade.\n\n5 - Considere o trecho abaixo\n\nQuando, pois, se trata das coisas que percebemos pela mente, estamos falando ainda em coisas que vemos e iluminado de que julga o homem interior.\n\nSegundo o pensamento de Santo Agostinho, as verdades contidas na filosofia pagã e cristãs:\n\n❌ a) De fonte diferente de onde emanam as verdades cristãs, pois há oposição entre as verdades pagãs e verdades cristãs.\n❌ b) Da mesma fonte de onde emanam verdades cristãs, pois não há verdades pagãs e cristãs.\n✅ c) De Platão, poder chegando a contribuir a ideia suprema do bem.')">
+                                                <h3 class="text-xl font-bold">Revisão de Filosofia com Resposta</h3>
+                                                <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                                                <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                                            </div>
+                            
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
+                                                <h3 class="text-xl font-bold">Revisão de Inglês com Resposta</h3>
+                                                <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
+                                                <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                                            </div>
+                            
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de História com Resposta', 'Eslly', '1°) Entre as mudanças ocorridas no Brasil colônia durante a união Ibérica destacam-se:\n\n❌ a) A introdução do tráfico negreiro, a invasão dos holandeses no nordeste e o início da produção de tabaco na Bacia do Recôncavo Baiano.\n✅ b) A expulsão da ocupação interna pela pecuária, a expulsão dos franceses e o crescimento do bandeirismo.\n❌ c) A expansão da economia açucareira no nordeste, o estreitamento das relações com a Inglaterra e a expulsão dos jesuítas.\n\n2°) O interesse dos holandeses em ocupar áreas no Brasil está relacionado com:\n\n❌ a) A conquista territorial de pontos estratégicos ligados à exploração da prata.\n✅ b) As barreiras impostas pela Espanha ao comércio dos holandeses no Brasil.\n❌ c) Os acordos preferenciais firmados entre Portugal e Inglaterra no comércio açucareiro.\n\n3°) Em 1587, Dom Sebastião ri de batalha, o Alcácer Quibir. Sem descendentes, o trono é assumido por um parente espanhol, Felipe II, que dois anos depois anexa Portugal à Espanha. Depois de uma longa disputa, a coroa portuguesa acaba sendo assumida por Felipe IV, responsável por transformar os Países Baixos em um tradicional inimigo espanhol. Dos episódios acima, resultam aqueles que se tornam inimigos de Portugal.\n\n✅ a) Holanda\n❌ b) Alemanha\n❌ c) Itália\n\n4°) A invasão e ocupação holandesa no nordeste do Brasil, ocorrida durante o período da União Ibérica:\n\n❌ a) Derivaram dos conflitos internos entre Portugal e Espanha, que resultaram na Confederação do Equador.\n❌ b) Foram resultados das disputas entre Holanda e Inglaterra pelo controle da navegação comercial atlântica.\n✅ c) Derivaram dos interesses holandeses na produção e comercialização de açúcar de cana.\n\n5°) As invasões holandesas no Brasil, no século XVII, estavam relacionadas à necessidade de os Países Baixos manterem e ampliarem sua hegemonia no comércio de açúcar na Europa, que havia sido interrompido:\n\n❌ a) Pela política pombalina, que destinava a desenvolver e simplificar o comércio de açúcar na própria colônia, com apoio dos ingleses.\n✅ b) Pela guerra de independência dos Países Baixos contra a Espanha e, em consequência, reflexos na colônia portuguesa, devido à União Ibérica.\n❌ c) Pelos interesses comerciais dos flamengos, que estavam presentes no Maranhão, em relação ao açúcar.\n\n6°) Uma das principais consequências do domínio holandês para o Brasil foi:\n\n❌ a) A alucinação do bandeirantismo paulista, cuja pontuação foi alvo do Tratado de Tordesilhas diversas vezes.\n✅ b) A inovação na academia de letras e posterior influência cultural econômica brasileira, com a fixação de holandeses nas Antilhas.\n❌ c) A aceleração dos movimentos dos nativistas de tendência emancipadora, como guerra dos Emboabas.\n\n7°) Assinale a alternativa incorreta:\n\n❌ a) As disputas pelo mercado de açúcar foram decisivas para que os holandeses invadissem o Brasil.\n✅ b) Portugal não demonstrou interesse em expulsar os holandeses do Brasil, mesmo após o término da União Ibérica.\n❌ c) Apesar dos conflitos, holandeses e portugueses tinham a visão de dominação que se preocupava em aumentar suas riquezas.')">
+                                                <h3 class="text-xl font-bold">Revisão de História com Resposta</h3>
+                                                <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                                                <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                                            </div>
+                                        
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
+                                            data-materia="Assunto das Provas" 
+                                            onclick="abrirModal('Revisão de Geografia com Resposta', 'Eslly', '1 – Diferencie as ideias da população sobre as teorias: \n a) Malthusiana – População cresce mais que os recursos. \n b) Neomalthusiana – Defende controle de natalidade. \n c) Reformista/Marxista – Problema é a má distribuição de renda. \n\n2 – Quais são os motivos que fizeram a expectativa de vida subir consideravelmente nos últimos séculos? Explique. \nMedicina, saneamento e vacinas aumentaram a expectativa de vida. \n\n3 – Explique a diferença entre a densidade demográfica e população absoluta. \nDensidade: população/área. \nPopulação absoluta: total de habitantes. \n\n4 – Identifique as diferenças entre o coeficiente de Gini e o IDH, ambos importantes para análise dos estudos demográficos. \nGini mede desigualdade de renda, IDH mede qualidade de vida. \n\n5 – Qual a diferença nas pirâmides etárias dos países desenvolvidos e países em desenvolvimento? \nDesenvolvidos: topo largo, base estreita. \nEm desenvolvimento: base larga, topo estreito.')">
+                                           
+                                           <!-- Aviso levemente inclinado e mais para a direita -->
+                                           <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
+                                               FEITO COM I.A
+                                           </div>
+                                       
+                                           <!-- Conteúdo principal -->
+                                           <h2 class="text-white font-bold text-lg">Revisão de Geografia com Resposta</h2>
+                                           <p class="text-gray-400 text-sm">Enviado por: Eslly</p>
+                                       </div>
+                            
+                                </div>  
+                            </section>
 
 
 
 </main>
 
-<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+<div style="z-index: 99999999999999999999999;" id="modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
     <div class="bg-gray-800 w-full h-full flex flex-col p-6">
         <button class="self-end text-white text-2xl mb-4" onclick="fecharModal()">✕</button>
         <h3 id="modalTitulo" class="text-3xl font-bold mb-2 text-left"></h3>
@@ -332,6 +650,7 @@ function copiarTexto() {
     });
 }
 </script>
+
 
 <button id="clearFilterButton" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hidden" onclick="clearFilter()">Limpar Filtro</button>
 
