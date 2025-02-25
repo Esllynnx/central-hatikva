@@ -20,6 +20,9 @@
 
     
     <style>
+        * {
+  user-select: none;
+}
         h1, h2, h3, h4, p, .text-white {
   font-family: 'Poppins', sans-serif !important;
 }
@@ -225,6 +228,12 @@
             <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
             <div class="grid grid-cols-2 gap-4" id="cards-container">
 
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Filosofia com Resposta', 'Eslly', 'Filosofia - Revisão\n\n1- Tomás de Aquino fala sobre a possibilidade do ser humano conhecer a verdade divina, ele diz que Deus. A primeira refere-se que o ser humano não consegue entender que Deus é Uno e Trino. A segunda modalizade, por exemplo, que Deus existe.\n\nA partir dessa citação, indique a alternativa que melhor expressa o pensamento de Tomás de Aquino:\n\n❌ a) A fé é o único meio do ser humano chegar à verdade.\n❌ b) O ser humano só alcança o conhecimento graças à revelação da verdade que Deus lhe concede.\n✅ c) Mesmo limitada, a razão humana é capaz de alcançar certas verdades por seus meios naturais.\n❌ d) A filosofia é capaz de todas as verdades acerca de Deus.\n❌ e) Deus é um ser absolutamente misterioso e o ser humano nada pode conhecer dEle.\n\n2- Uma das preocupações de certa escola filosófica consistia em platonicar os gêneros e as espécies aristotélicas são substâncias reais, Reflexões da história da filosofia:\n\n❌ a) Pré-socrática\n❌ b) Filosofia Antiga\n✅ c) Filosofia Medieval\n❌ d) Filosofia Moderna\n❌ e) Filosofia Contemporânea\n\n3- A doutrina de Platão influenciou os primeiros filósofos medievais. Santo Agostinho, bispo de Hipona (354 a 430), e Boécio (480 a 524), autores de Confissões e Consolação da Filosofia, respectivamente. Mas a filosofia que predominou na Idade Média foi a:\n\n❌ a) Sofística\n❌ b) Epicurista\n✅ c) Escolástica\n❌ d) Existencialista\n\n4- No século XIII surgiu a Escolástica, corrente filosófica que, a partir de então, dominou o pensamento medieval.\n\n❌ a) Teve em Santo Agostinho seu maior expoente e era teocêntrica.\n❌ b) Teve em Alberto Magno seu maior expoente e rejeitava, prezando o antropocentrismo.\n✅ c) Teve em Tomás de Aquino seu principal expoente e foi uma tentativa de harmonizar a razão com a fé.\n❌ d) Considerava que a razão possa proporcionar uma visão completa e unificada da natureza e da sociedade.\n\n5 - Considere o trecho abaixo\n\nQuando, pois, se trata das coisas que percebemos pela mente, estamos falando ainda em coisas que vemos e iluminado de que julga o homem interior.\n\nSegundo o pensamento de Santo Agostinho, as verdades contidas na filosofia pagã e cristãs:\n\n❌ a) De fonte diferente de onde emanam as verdades cristãs, pois há oposição entre as verdades pagãs e verdades cristãs.\n❌ b) Da mesma fonte de onde emanam verdades cristãs, pois não há verdades pagãs e cristãs.\n✅ c) De Platão, poder chegando a contribuir a ideia suprema do bem.')">
+                    <h3 class="text-xl font-bold">Revisão de Filosofia com Resposta</h3>
+                    <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+                    <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+                </div>
+
                 <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
                     <h3 class="text-xl font-bold">Revisão de Inglês com Resposta</h3>
                     <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
@@ -263,11 +272,31 @@
         <button class="self-end text-white text-2xl mb-4" onclick="fecharModal()">✕</button>
         <h3 id="modalTitulo" class="text-3xl font-bold mb-2 text-left"></h3>
         <p id="modalAutor" class="text-lg text-gray-400 text-left mb-4"></p>
-        <div class="bg-gray-700 p-4 rounded-lg w-full h-full text-white overflow-auto">
+        <div class="relative bg-gray-700 p-4 rounded-lg w-full h-full text-white overflow-auto">
+            <i class="fa-solid fa-copy absolute top-2 right-2 text-2xl text-gray-400 cursor-pointer hover:text-[#10B981]" onclick="copiarTexto()"></i>
+            <div id="copyMessage" class="hidden absolute top-10 right-2 bg-gray-900 text-white text-sm px-3 py-1 rounded-lg shadow-lg">
+                Copiado!
+            </div>
             <div id="modalConteudo" class="w-full h-full bg-gray-700 text-white p-2 border-none outline-none resize-none"></div>
         </div>
     </div>
 </div>
+
+<script>
+function copiarTexto() {
+    const texto = document.getElementById("modalConteudo").innerText;
+    navigator.clipboard.writeText(texto).then(() => {
+        const mensagem = document.getElementById("copyMessage");
+        mensagem.classList.remove("hidden");
+        
+        setTimeout(() => {
+            mensagem.classList.add("hidden");
+        }, 2000); // Esconde o balão depois de 2 segundos
+    }).catch(err => {
+        console.error("Erro ao copiar texto:", err);
+    });
+}
+</script>
 
 <button id="clearFilterButton" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hidden" onclick="clearFilter()">Limpar Filtro</button>
 

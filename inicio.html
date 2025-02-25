@@ -20,6 +20,11 @@
 
     
     <style>
+
+* {
+  user-select: none;
+}
+
         h1, h2, h3, h4, p, .text-white {
   font-family: 'Poppins', sans-serif !important;
 }
@@ -501,11 +506,32 @@ onclick="abrirModal('APROFUNDE de Geografia Mód 14 / Pág 38 e 39', 'Eslly', 'P
         <button class="self-end text-white text-2xl mb-4" onclick="fecharModal()">✕</button>
         <h3 id="modalTitulo" class="text-3xl font-bold mb-2 text-left"></h3>
         <p id="modalAutor" class="text-lg text-gray-400 text-left mb-4"></p>
-        <div class="bg-gray-700 p-4 rounded-lg w-full h-full text-white overflow-auto">
+        <div class="relative bg-gray-700 p-4 rounded-lg w-full h-full text-white overflow-auto">
+            <i class="fa-solid fa-copy absolute top-2 right-2 text-2xl text-gray-400 cursor-pointer hover:text-[#10B981]" onclick="copiarTexto()"></i>
+            <div id="copyMessage" class="hidden absolute top-10 right-2 bg-gray-900 text-white text-sm px-3 py-1 rounded-lg shadow-lg">
+                Copiado!
+            </div>
             <div id="modalConteudo" class="w-full h-full bg-gray-700 text-white p-2 border-none outline-none resize-none"></div>
         </div>
     </div>
 </div>
+
+<script>
+function copiarTexto() {
+    const texto = document.getElementById("modalConteudo").innerText;
+    navigator.clipboard.writeText(texto).then(() => {
+        const mensagem = document.getElementById("copyMessage");
+        mensagem.classList.remove("hidden");
+        
+        setTimeout(() => {
+            mensagem.classList.add("hidden");
+        }, 2000); // Esconde o balão depois de 2 segundos
+    }).catch(err => {
+        console.error("Erro ao copiar texto:", err);
+    });
+}
+</script>
+
 
 <button id="clearFilterButton" class="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all duration-300 hidden" onclick="clearFilter()">Limpar Filtro</button>
 
