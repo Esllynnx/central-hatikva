@@ -572,14 +572,22 @@ margin-top: 30px; /* Espaço extra acima do botão */
 
 
 
-                                <div id="overlay" class="overlay hidden"></div>
-                                <main class="p-4 z-0">
-                                    <section class="mt-4">
+<div id="overlay" class="overlay hidden"></div>
+<main class="p-4 z-0">
+<section class="mt-4">
                             
-                                        <input type="text" id="searchInput" class="filter-input" placeholder="Filtrar revisões..." onkeyup="searchCards()">
+<input type="text" id="searchInput" class="filter-input" placeholder="Filtrar revisões..." onkeyup="searchCards()">
                             
-                                        <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
-                                        <div class="grid grid-cols-2 gap-4" id="cards-container">
+<h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
+<div class="grid grid-cols-2 gap-4" id="cards-container">
+
+    <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Literatura', 'Eslly', 'Revisão de Literatura\n\nO Romantismo é consolidado no Brasil por Gonçalves Dias com a Canção do Exílio (1833), poesia considerada tipicamente romântica, pois exalta a terra natal, além de ser nostalgia e saudade.\n\nReligiosidade, nacionalismo, indianismo, saudosismo e uso de formas mais livres em comparação ao soneto são alguns temas e aspectos característicos do período romântico e de suas obras poéticas.\n\n- Tem como uma das temáticas o indígena elevado à categoria de herói nacional, tendo em vista a busca de uma identidade racial desvinculada do passado europeanizado e de colônia.\n\n- A natureza exerce o papel de protagonista em muitas obras e serve de cenário para encontros amorosos entre a figura idealista da mulher indígena e o amado, cuja chegada é aguardada, mas não acontece.\n\n- Melancolia saudosista\n\n- Oposição à estética neoclássica / Liberdade formal e originalidade\n\nO amor é um tema dominante na poesia intimista de cunho romântico no Brasil, relacionado à mulher e à sentimentalidade idealizada sob o olhar apaixonado do poeta, que usa a natureza como forma de comparação capaz de expressar a intensidade dos seus sentimentos.')">
+        <h3 class="text-xl font-bold">Revisão de Literatura</h3>
+        <p class="text-sm text-gray-400">Enviado por: Eslly</p>
+        <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
+    </div>
+
+
                             
                             <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
                             data-materia="Assunto das Provas" 
