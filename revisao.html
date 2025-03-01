@@ -145,6 +145,7 @@
         }
         .right-0 {
             right: 0;
+            z-index: 9999;
         }
         .max-h-64 {
             max-height: 16rem;
@@ -532,6 +533,81 @@ margin-top: 30px; /* Espaço extra acima do botão */
 }
 }
 
+
+
+
+
+
+
+
+
+
+
+.border-effect {
+                                        position: relative;
+                                        transition: all 0.1s ease-in-out;
+                                    }
+                                
+                                    .border-effect::after {
+                                        content: "";
+                                        position: absolute;
+                                        inset: -3px;
+                                        border: 2px solid transparent;
+                                        border-radius: 10px;
+                                        opacity: 0;
+                                        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-width 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    inset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+                                    }
+                                
+                                    .border-effect:hover::after {
+                                        border-color: orange;
+                                        border-width: 2px;
+                                        opacity: 1;
+                                        inset: -3px;
+                                        transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-width 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+                                    }
+                                
+                                    .border-effect:not(:hover)::after {
+                                        border-width: 0px;
+                                        inset: -1px;
+                                    }
+                                    .border-effect {
+    position: relative;
+    transition: all 0.1s ease-in-out;
+}
+
+.border-effect::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                inset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-effect:hover::after {
+    border-color: orange;
+    border-width: 2px;
+    opacity: 1;
+    inset: -3px;
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-effect:not(:hover)::after {
+    border-width: 0px;
+    inset: -1px;
+}
+
                             </style>
                             
 
@@ -581,7 +657,7 @@ margin-top: 30px; /* Espaço extra acima do botão */
 <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
 <div class="grid grid-cols-2 gap-4" id="cards-container">
 
-    <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Literatura', 'Eslly', 'Revisão de Literatura\n\nO Romantismo é consolidado no Brasil por Gonçalves Dias com a Canção do Exílio (1833), poesia considerada tipicamente romântica, pois exalta a terra natal, além de ser nostalgia e saudade.\n\nReligiosidade, nacionalismo, indianismo, saudosismo e uso de formas mais livres em comparação ao soneto são alguns temas e aspectos característicos do período romântico e de suas obras poéticas.\n\n- Tem como uma das temáticas o indígena elevado à categoria de herói nacional, tendo em vista a busca de uma identidade racial desvinculada do passado europeanizado e de colônia.\n\n- A natureza exerce o papel de protagonista em muitas obras e serve de cenário para encontros amorosos entre a figura idealista da mulher indígena e o amado, cuja chegada é aguardada, mas não acontece.\n\n- Melancolia saudosista\n\n- Oposição à estética neoclássica / Liberdade formal e originalidade\n\nO amor é um tema dominante na poesia intimista de cunho romântico no Brasil, relacionado à mulher e à sentimentalidade idealizada sob o olhar apaixonado do poeta, que usa a natureza como forma de comparação capaz de expressar a intensidade dos seus sentimentos.')">
+    <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Literatura', 'Eslly', 'Revisão de Literatura\n\nO Romantismo é consolidado no Brasil por Gonçalves Dias com a Canção do Exílio (1833), poesia considerada tipicamente romântica, pois exalta a terra natal, além de ser nostalgia e saudade.\n\nReligiosidade, nacionalismo, indianismo, saudosismo e uso de formas mais livres em comparação ao soneto são alguns temas e aspectos característicos do período romântico e de suas obras poéticas.\n\n- Tem como uma das temáticas o indígena elevado à categoria de herói nacional, tendo em vista a busca de uma identidade racial desvinculada do passado europeanizado e de colônia.\n\n- A natureza exerce o papel de protagonista em muitas obras e serve de cenário para encontros amorosos entre a figura idealista da mulher indígena e o amado, cuja chegada é aguardada, mas não acontece.\n\n- Melancolia saudosista\n\n- Oposição à estética neoclássica / Liberdade formal e originalidade\n\nO amor é um tema dominante na poesia intimista de cunho romântico no Brasil, relacionado à mulher e à sentimentalidade idealizada sob o olhar apaixonado do poeta, que usa a natureza como forma de comparação capaz de expressar a intensidade dos seus sentimentos.')">
         <h3 class="text-xl font-bold">Revisão de Literatura</h3>
         <p class="text-sm text-gray-400">Enviado por: Eslly</p>
         <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
@@ -589,7 +665,7 @@ margin-top: 30px; /* Espaço extra acima do botão */
 
 
                             
-                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
+                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" 
                             data-materia="Assunto das Provas" 
                             onclick="abrirModal('Resumo da Prova de Ed. Física', 'Arlindo', 'Resumo Ed. Física\n\n* Treinamento funcional funciona?\n\nSegundo a Base Nacional Comum Curricular (BNCC) o objetivo da matéria nos anos finais é (melhorar o aluno como pessoa, embelezar seu corpo e lidar com seus sentimentos e relações sociais).\n\n84% dos jovens de 11 a 17 anos são sedentários. Acredita-se que este número é resultado da nova rotina cada vez mais intensa e uso excessivo de eletrônicos.\n\n* Treinamento funcional: Tipos de exercícios de alta potência também treinamento esportivo.\n\n* Benefícios: Aumento da força, resistência, velocidade, coordenação, flexibilidade e fortalecimento do core.\n\nNa antiguidade, o treinamento funcional era usado como preparação de soldados para guerras e depois foi usado para reabilitação de pacientes e cirurgias, tratamentos musculoesqueléticos.\nApós um tempo começaram a aderir suas práticas para preparo e reabilitação de atletas.\n\n* Musculação: Mitos e Verdades\n\n- Toxina os músculos\n\nMusculação é o treinamento entre resistência usando métodos da modalidade para melhorar força muscular. Trazia inspiração por Eugene Sandow (Pai do fisiculturismo) em 1902, além dele, o campeão Milo (Grécia).\n\nO Gasto de Energia Diário (GED) é calculado em base o\nTaxa Metabólica nos Repousos (TMR), Termogênese induzida pela dieta (TID) e Atividade Física (AF).\n\n* Mitos\n\n❮❮ Treinar mais sem sempre é a solução (repouso/alimentação)\n Abdômen não emagrece e apenas fortalece o core \n \n Anabolizantes\n\n➜ drogas derivadas da testosterona que provocam crescimento nos músculos, porém causam problemas estéticos e de saúde.\n\n- Crescimento dos pelos\n- Deregulação sanguínea\n- Alteração na voz\n- Depressão\n- Câncer\n- Impotência sexual\n- Mudanças de temperamento')">
                             <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
@@ -599,25 +675,25 @@ margin-top: 30px; /* Espaço extra acima do botão */
                             <p class="text-gray-400 text-sm">Enviado por: Arlindo</p>
                             </div>
                             
-                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Filosofia com Resposta', 'Eslly', 'Filosofia - Revisão\n\n1- Tomás de Aquino fala sobre a possibilidade do ser humano conhecer a verdade divina, ele diz que Deus. A primeira refere-se que o ser humano não consegue entender que Deus é Uno e Trino. A segunda modalizade, por exemplo, que Deus existe.\n\nA partir dessa citação, indique a alternativa que melhor expressa o pensamento de Tomás de Aquino:\n\n❌ a) A fé é o único meio do ser humano chegar à verdade.\n❌ b) O ser humano só alcança o conhecimento graças à revelação da verdade que Deus lhe concede.\n✅ c) Mesmo limitada, a razão humana é capaz de alcançar certas verdades por seus meios naturais.\n❌ d) A filosofia é capaz de todas as verdades acerca de Deus.\n❌ e) Deus é um ser absolutamente misterioso e o ser humano nada pode conhecer dEle.\n\n2- Uma das preocupações de certa escola filosófica consistia em platonicar os gêneros e as espécies aristotélicas são substâncias reais, Reflexões da história da filosofia:\n\n❌ a) Pré-socrática\n❌ b) Filosofia Antiga\n✅ c) Filosofia Medieval\n❌ d) Filosofia Moderna\n❌ e) Filosofia Contemporânea\n\n3- A doutrina de Platão influenciou os primeiros filósofos medievais. Santo Agostinho, bispo de Hipona (354 a 430), e Boécio (480 a 524), autores de Confissões e Consolação da Filosofia, respectivamente. Mas a filosofia que predominou na Idade Média foi a:\n\n❌ a) Sofística\n❌ b) Epicurista\n✅ c) Escolástica\n❌ d) Existencialista\n\n4- No século XIII surgiu a Escolástica, corrente filosófica que, a partir de então, dominou o pensamento medieval.\n\n❌ a) Teve em Santo Agostinho seu maior expoente e era teocêntrica.\n❌ b) Teve em Alberto Magno seu maior expoente e rejeitava, prezando o antropocentrismo.\n✅ c) Teve em Tomás de Aquino seu principal expoente e foi uma tentativa de harmonizar a razão com a fé.\n❌ d) Considerava que a razão possa proporcionar uma visão completa e unificada da natureza e da sociedade.\n\n5 - Considere o trecho abaixo\n\nQuando, pois, se trata das coisas que percebemos pela mente, estamos falando ainda em coisas que vemos e iluminado de que julga o homem interior.\n\nSegundo o pensamento de Santo Agostinho, as verdades contidas na filosofia pagã e cristãs:\n\n❌ a) De fonte diferente de onde emanam as verdades cristãs, pois há oposição entre as verdades pagãs e verdades cristãs.\n❌ b) Da mesma fonte de onde emanam verdades cristãs, pois não há verdades pagãs e cristãs.\n✅ c) De Platão, poder chegando a contribuir a ideia suprema do bem.')">
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Filosofia com Resposta', 'Eslly', 'Filosofia - Revisão\n\n1- Tomás de Aquino fala sobre a possibilidade do ser humano conhecer a verdade divina, ele diz que Deus. A primeira refere-se que o ser humano não consegue entender que Deus é Uno e Trino. A segunda modalizade, por exemplo, que Deus existe.\n\nA partir dessa citação, indique a alternativa que melhor expressa o pensamento de Tomás de Aquino:\n\n❌ a) A fé é o único meio do ser humano chegar à verdade.\n❌ b) O ser humano só alcança o conhecimento graças à revelação da verdade que Deus lhe concede.\n✅ c) Mesmo limitada, a razão humana é capaz de alcançar certas verdades por seus meios naturais.\n❌ d) A filosofia é capaz de todas as verdades acerca de Deus.\n❌ e) Deus é um ser absolutamente misterioso e o ser humano nada pode conhecer dEle.\n\n2- Uma das preocupações de certa escola filosófica consistia em platonicar os gêneros e as espécies aristotélicas são substâncias reais, Reflexões da história da filosofia:\n\n❌ a) Pré-socrática\n❌ b) Filosofia Antiga\n✅ c) Filosofia Medieval\n❌ d) Filosofia Moderna\n❌ e) Filosofia Contemporânea\n\n3- A doutrina de Platão influenciou os primeiros filósofos medievais. Santo Agostinho, bispo de Hipona (354 a 430), e Boécio (480 a 524), autores de Confissões e Consolação da Filosofia, respectivamente. Mas a filosofia que predominou na Idade Média foi a:\n\n❌ a) Sofística\n❌ b) Epicurista\n✅ c) Escolástica\n❌ d) Existencialista\n\n4- No século XIII surgiu a Escolástica, corrente filosófica que, a partir de então, dominou o pensamento medieval.\n\n❌ a) Teve em Santo Agostinho seu maior expoente e era teocêntrica.\n❌ b) Teve em Alberto Magno seu maior expoente e rejeitava, prezando o antropocentrismo.\n✅ c) Teve em Tomás de Aquino seu principal expoente e foi uma tentativa de harmonizar a razão com a fé.\n❌ d) Considerava que a razão possa proporcionar uma visão completa e unificada da natureza e da sociedade.\n\n5 - Considere o trecho abaixo\n\nQuando, pois, se trata das coisas que percebemos pela mente, estamos falando ainda em coisas que vemos e iluminado de que julga o homem interior.\n\nSegundo o pensamento de Santo Agostinho, as verdades contidas na filosofia pagã e cristãs:\n\n❌ a) De fonte diferente de onde emanam as verdades cristãs, pois há oposição entre as verdades pagãs e verdades cristãs.\n❌ b) Da mesma fonte de onde emanam verdades cristãs, pois não há verdades pagãs e cristãs.\n✅ c) De Platão, poder chegando a contribuir a ideia suprema do bem.')">
                                                 <h3 class="text-xl font-bold">Revisão de Filosofia com Resposta</h3>
                                                 <p class="text-sm text-gray-400">Enviado por: Eslly</p>
                                                 <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                                             </div>
                             
-                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de Inglês com Resposta', 'Arlindo', '1. Explain the function of the present perfect.\nAlgo do passado que continua acontecendo.\n\n2. Write the structure of the present perfect.\nVerbo have mais verbo no modo participio.\nExemplo: has\n\n3. Write a sentence about you using the present perfect.\nI have painted a picture.\n\n4. (ENEM 2019). Qual das frases está no tempo verbal present perfect?\na) She has been studying for hours;\nb) They will be arriving soon;\nc) He is working on his project;\nd) We had been waiting for a long time;\ne) I have never seen that movie.\nResposta: e)\n\n5. (ENEM 2018). Escolha a alternativa que completa corretamente a frase abaixo: I ________ my homework yet:\na) didn\'t finish\nb) haven\'t finished\nc) don\'t finish\nResposta: b)\n\n6. (ENEM 2017). Escolha a alternativa que completa corretamente a frase abaixo: He ________ to the gym three times this week.\na) go\nb) went\nc) have gone\nd) will go\ne) would go\nResposta: c)\n\n7. Write the definition and write a sentence.\na) yet\nDefinição: ainda.\nExemplo: I haven\'t gone to school yet.\n\nb) already\nDefinição: já.\nExemplo: He has already studied.\n\nc) just\nDefinição: acabou de.\nExemplo: She has just cooked dinner.')">
                                                 <h3 class="text-xl font-bold">Revisão de Inglês com Resposta</h3>
                                                 <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
                                                 <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                                             </div>
                             
-                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de História com Resposta', 'Eslly', '1°) Entre as mudanças ocorridas no Brasil colônia durante a união Ibérica destacam-se:\n\n❌ a) A introdução do tráfico negreiro, a invasão dos holandeses no nordeste e o início da produção de tabaco na Bacia do Recôncavo Baiano.\n✅ b) A expulsão da ocupação interna pela pecuária, a expulsão dos franceses e o crescimento do bandeirismo.\n❌ c) A expansão da economia açucareira no nordeste, o estreitamento das relações com a Inglaterra e a expulsão dos jesuítas.\n\n2°) O interesse dos holandeses em ocupar áreas no Brasil está relacionado com:\n\n❌ a) A conquista territorial de pontos estratégicos ligados à exploração da prata.\n✅ b) As barreiras impostas pela Espanha ao comércio dos holandeses no Brasil.\n❌ c) Os acordos preferenciais firmados entre Portugal e Inglaterra no comércio açucareiro.\n\n3°) Em 1587, Dom Sebastião ri de batalha, o Alcácer Quibir. Sem descendentes, o trono é assumido por um parente espanhol, Felipe II, que dois anos depois anexa Portugal à Espanha. Depois de uma longa disputa, a coroa portuguesa acaba sendo assumida por Felipe IV, responsável por transformar os Países Baixos em um tradicional inimigo espanhol. Dos episódios acima, resultam aqueles que se tornam inimigos de Portugal.\n\n✅ a) Holanda\n❌ b) Alemanha\n❌ c) Itália\n\n4°) A invasão e ocupação holandesa no nordeste do Brasil, ocorrida durante o período da União Ibérica:\n\n❌ a) Derivaram dos conflitos internos entre Portugal e Espanha, que resultaram na Confederação do Equador.\n❌ b) Foram resultados das disputas entre Holanda e Inglaterra pelo controle da navegação comercial atlântica.\n✅ c) Derivaram dos interesses holandeses na produção e comercialização de açúcar de cana.\n\n5°) As invasões holandesas no Brasil, no século XVII, estavam relacionadas à necessidade de os Países Baixos manterem e ampliarem sua hegemonia no comércio de açúcar na Europa, que havia sido interrompido:\n\n❌ a) Pela política pombalina, que destinava a desenvolver e simplificar o comércio de açúcar na própria colônia, com apoio dos ingleses.\n✅ b) Pela guerra de independência dos Países Baixos contra a Espanha e, em consequência, reflexos na colônia portuguesa, devido à União Ibérica.\n❌ c) Pelos interesses comerciais dos flamengos, que estavam presentes no Maranhão, em relação ao açúcar.\n\n6°) Uma das principais consequências do domínio holandês para o Brasil foi:\n\n❌ a) A alucinação do bandeirantismo paulista, cuja pontuação foi alvo do Tratado de Tordesilhas diversas vezes.\n✅ b) A inovação na academia de letras e posterior influência cultural econômica brasileira, com a fixação de holandeses nas Antilhas.\n❌ c) A aceleração dos movimentos dos nativistas de tendência emancipadora, como guerra dos Emboabas.\n\n7°) Assinale a alternativa incorreta:\n\n❌ a) As disputas pelo mercado de açúcar foram decisivas para que os holandeses invadissem o Brasil.\n✅ b) Portugal não demonstrou interesse em expulsar os holandeses do Brasil, mesmo após o término da União Ibérica.\n❌ c) Apesar dos conflitos, holandeses e portugueses tinham a visão de dominação que se preocupava em aumentar suas riquezas.')">
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Revisão de História com Resposta', 'Eslly', '1°) Entre as mudanças ocorridas no Brasil colônia durante a união Ibérica destacam-se:\n\n❌ a) A introdução do tráfico negreiro, a invasão dos holandeses no nordeste e o início da produção de tabaco na Bacia do Recôncavo Baiano.\n✅ b) A expulsão da ocupação interna pela pecuária, a expulsão dos franceses e o crescimento do bandeirismo.\n❌ c) A expansão da economia açucareira no nordeste, o estreitamento das relações com a Inglaterra e a expulsão dos jesuítas.\n\n2°) O interesse dos holandeses em ocupar áreas no Brasil está relacionado com:\n\n❌ a) A conquista territorial de pontos estratégicos ligados à exploração da prata.\n✅ b) As barreiras impostas pela Espanha ao comércio dos holandeses no Brasil.\n❌ c) Os acordos preferenciais firmados entre Portugal e Inglaterra no comércio açucareiro.\n\n3°) Em 1587, Dom Sebastião ri de batalha, o Alcácer Quibir. Sem descendentes, o trono é assumido por um parente espanhol, Felipe II, que dois anos depois anexa Portugal à Espanha. Depois de uma longa disputa, a coroa portuguesa acaba sendo assumida por Felipe IV, responsável por transformar os Países Baixos em um tradicional inimigo espanhol. Dos episódios acima, resultam aqueles que se tornam inimigos de Portugal.\n\n✅ a) Holanda\n❌ b) Alemanha\n❌ c) Itália\n\n4°) A invasão e ocupação holandesa no nordeste do Brasil, ocorrida durante o período da União Ibérica:\n\n❌ a) Derivaram dos conflitos internos entre Portugal e Espanha, que resultaram na Confederação do Equador.\n❌ b) Foram resultados das disputas entre Holanda e Inglaterra pelo controle da navegação comercial atlântica.\n✅ c) Derivaram dos interesses holandeses na produção e comercialização de açúcar de cana.\n\n5°) As invasões holandesas no Brasil, no século XVII, estavam relacionadas à necessidade de os Países Baixos manterem e ampliarem sua hegemonia no comércio de açúcar na Europa, que havia sido interrompido:\n\n❌ a) Pela política pombalina, que destinava a desenvolver e simplificar o comércio de açúcar na própria colônia, com apoio dos ingleses.\n✅ b) Pela guerra de independência dos Países Baixos contra a Espanha e, em consequência, reflexos na colônia portuguesa, devido à União Ibérica.\n❌ c) Pelos interesses comerciais dos flamengos, que estavam presentes no Maranhão, em relação ao açúcar.\n\n6°) Uma das principais consequências do domínio holandês para o Brasil foi:\n\n❌ a) A alucinação do bandeirantismo paulista, cuja pontuação foi alvo do Tratado de Tordesilhas diversas vezes.\n✅ b) A inovação na academia de letras e posterior influência cultural econômica brasileira, com a fixação de holandeses nas Antilhas.\n❌ c) A aceleração dos movimentos dos nativistas de tendência emancipadora, como guerra dos Emboabas.\n\n7°) Assinale a alternativa incorreta:\n\n❌ a) As disputas pelo mercado de açúcar foram decisivas para que os holandeses invadissem o Brasil.\n✅ b) Portugal não demonstrou interesse em expulsar os holandeses do Brasil, mesmo após o término da União Ibérica.\n❌ c) Apesar dos conflitos, holandeses e portugueses tinham a visão de dominação que se preocupava em aumentar suas riquezas.')">
                                                 <h3 class="text-xl font-bold">Revisão de História com Resposta</h3>
                                                 <p class="text-sm text-gray-400">Enviado por: Eslly</p>
                                                 <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                                             </div>
                                         
-                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
+                                            <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" 
                                             data-materia="Assunto das Provas" 
                                             onclick="abrirModal('Revisão de Geografia com Resposta', 'Eslly', '1 – Diferencie as ideias da população sobre as teorias: \n a) Malthusiana – População cresce mais que os recursos. \n b) Neomalthusiana – Defende controle de natalidade. \n c) Reformista/Marxista – Problema é a má distribuição de renda. \n\n2 – Quais são os motivos que fizeram a expectativa de vida subir consideravelmente nos últimos séculos? Explique. \nMedicina, saneamento e vacinas aumentaram a expectativa de vida. \n\n3 – Explique a diferença entre a densidade demográfica e população absoluta. \nDensidade: população/área. \nPopulação absoluta: total de habitantes. \n\n4 – Identifique as diferenças entre o coeficiente de Gini e o IDH, ambos importantes para análise dos estudos demográficos. \nGini mede desigualdade de renda, IDH mede qualidade de vida. \n\n5 – Qual a diferença nas pirâmides etárias dos países desenvolvidos e países em desenvolvimento? \nDesenvolvidos: topo largo, base estreita. \nEm desenvolvimento: base larga, topo estreito.')">
                                            

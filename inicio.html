@@ -145,6 +145,7 @@
         }
         .right-0 {
             right: 0;
+            z-index: 999;
         }
         .max-h-64 {
             max-height: 16rem;
@@ -582,7 +583,74 @@ body {
                                 
 
 
+                                <style>
+                                    .border-effect {
+                                        position: relative;
+                                        transition: all 0.1s ease-in-out;
+                                    }
+                                
+                                    .border-effect::after {
+                                        content: "";
+                                        position: absolute;
+                                        inset: -3px;
+                                        border: 2px solid transparent;
+                                        border-radius: 10px;
+                                        opacity: 0;
+                                        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-width 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    inset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+                                    }
+                                
+                                    .border-effect:hover::after {
+                                        border-color: orange;
+                                        border-width: 2px;
+                                        opacity: 1;
+                                        inset: -3px;
+                                        transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-width 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                                                    border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+                                    }
+                                
+                                    .border-effect:not(:hover)::after {
+                                        border-width: 0px;
+                                        inset: -1px;
+                                    }
+                                    .border-effect {
+    position: relative;
+    transition: all 0.1s ease-in-out;
+}
 
+.border-effect::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                inset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-effect:hover::after {
+    border-color: orange;
+    border-width: 2px;
+    opacity: 1;
+    inset: -3px;
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-effect:not(:hover)::after {
+    border-width: 0px;
+    inset: -1px;
+}
+
+                                </style>
+                                
 
         <section class="mt-4">  
             <h2 class="text-lg font-semibold mb-2">Atividades Enviadas</h2>
@@ -597,25 +665,25 @@ body {
             <h2 class="text-lg font-semibold mb-2">1º Bimestre</h2>
             <div class="grid grid-cols-2 gap-4" id="cards-container">
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Literatura - Atividade do Livro pág. 80', 'Arlindo', 'Livro pág. 80\n\n1. e) Sugere que é importante viver\n\n2. c)\n\n3. e)\n\n4. d) I e II estão corretas\n\n5. Os da primeira geração buscaram trazer à tona uma ideia de nacionalismo e valorização cultural, enquanto a 3ª (geração) se importa ao sentimento do autor')">
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Literatura - Atividade do Livro pág. 80', 'Arlindo', 'Livro pág. 80\n\n1. e) Sugere que é importante viver\n\n2. c)\n\n3. e)\n\n4. d) I e II estão corretas\n\n5. Os da primeira geração buscaram trazer à tona uma ideia de nacionalismo e valorização cultural, enquanto a 3ª (geração) se importa ao sentimento do autor')">
                     <h3 class="text-xl font-bold">Literatura - Livro pág. 80 (Resposta)</h3>
                     <p class="text-sm text-gray-400">Enviado por: Arlindo</p>
                     <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                 </div>
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Literatura - Romantismo', 'Eslly', 'Literatura\n\nRomantismo \n> Início: 1836 (24 anos pós independência)\n\nAntecedentes do Romantismo Brasileiro: \nO Romantismo brasileiro vem junto com o movimento Tempestade e Impeto, originário da Alemanha, sendo esse um período de dor e amargura, pessimismo e desencantismo, e negação chamado de mau do século. Já, em território francês, o Romantismo surge da influência da Revolução Industrial, Inglesa e, principalmente, da Revolução Francesa, que pregava seu lema: Liberdade, Igualdade e Fraternidade.\n\nEm Portugal, a obra Os Lusiadas, de Camões, Garrett, inicia o Romantismo no País. Tudo isso foi o que alcançou necessário para a Literatura no Brasil, pois tem influência do modelo europeu.\n\n---\n\nCaracterísticas\n\n- oposição ao neoclassicismo \n- originalidade \n- indianismo (Índio comparado ao medievalismo) \n- saudosismo')">
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Literatura - Romantismo', 'Eslly', 'Literatura\n\nRomantismo \n> Início: 1836 (24 anos pós independência)\n\nAntecedentes do Romantismo Brasileiro: \nO Romantismo brasileiro vem junto com o movimento Tempestade e Impeto, originário da Alemanha, sendo esse um período de dor e amargura, pessimismo e desencantismo, e negação chamado de mau do século. Já, em território francês, o Romantismo surge da influência da Revolução Industrial, Inglesa e, principalmente, da Revolução Francesa, que pregava seu lema: Liberdade, Igualdade e Fraternidade.\n\nEm Portugal, a obra Os Lusiadas, de Camões, Garrett, inicia o Romantismo no País. Tudo isso foi o que alcançou necessário para a Literatura no Brasil, pois tem influência do modelo europeu.\n\n---\n\nCaracterísticas\n\n- oposição ao neoclassicismo \n- originalidade \n- indianismo (Índio comparado ao medievalismo) \n- saudosismo')">
                     <h3 class="text-xl font-bold">Literatura - Romantismo</h3>
                     <p class="text-sm text-gray-400">Enviado por: Eslly</p>
                     <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                 </div>
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Exercício 8 de Química com Resposta', 'Eslly', '8. A cor vermelha de certos fogos de artifício é devida ao carbonato de estrôncio, cuja formação é representada pela equação:\n\n5Sr(s) + C(grafite) + (3/2)O₂(g) → 5SrCO₃(s)\n\nΔH = ?\n\nSendo dados:\n\nI.\n5Sr(s) + (1/2)O₂(g) → 5SrO(s)  ΔH₁ = -592 kJ\n\nII.\n5SrO(s) + C(s) + CO₂(g) → 5SrCO₃(s)  ΔH₂ = -234 kJ\n\nIII.\nCH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O  ΔH₃ = -213 kcal\n\nPode-se afirmar que a entalpia de formação do carbonato de estrôncio em kJ/mol é:\n\na) -628\nb) -986\nc) +986\nd) -1320\ne) +1120')">
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Exercício 8 de Química com Resposta', 'Eslly', '8. A cor vermelha de certos fogos de artifício é devida ao carbonato de estrôncio, cuja formação é representada pela equação:\n\n5Sr(s) + C(grafite) + (3/2)O₂(g) → 5SrCO₃(s)\n\nΔH = ?\n\nSendo dados:\n\nI.\n5Sr(s) + (1/2)O₂(g) → 5SrO(s)  ΔH₁ = -592 kJ\n\nII.\n5SrO(s) + C(s) + CO₂(g) → 5SrCO₃(s)  ΔH₂ = -234 kJ\n\nIII.\nCH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O  ΔH₃ = -213 kcal\n\nPode-se afirmar que a entalpia de formação do carbonato de estrôncio em kJ/mol é:\n\na) -628\nb) -986\nc) +986\nd) -1320\ne) +1120')">
                     <h3 class="text-xl font-bold">Exercício 8 de Química com Resposta</h3>
                     <p class="text-sm text-gray-400">Enviado por: Eslly</p>
                     <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                 </div>
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" 
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" 
 data-materia="Assunto das Provas" 
 onclick="abrirModal('APROFUNDE de Geografia Mód 14 / Pág 38 e 39', 'Eslly', 'PRATIQUE\n1. (PUC-RJ)\nA imagem noturna feita por satélites mostra a região do Oriente Médio e parte do Norte do continente africano. Veem-se as luzes noturnas dos aglomerados humanos, sendo que os círculos brancos indicam as áreas onde essa concentração é mais expressiva e as letras A onde a população é bem escassa.\n\na) Identifique a condição ambiental que possibilita a concentração demográfica observada nas áreas circuladas.\n✅ Resposta: A presença de rios, como o Rio Nilo, e de áreas com maior disponibilidade de água e terras férteis, favorecendo a agricultura e o abastecimento da população.\n\nb) Com relação aos grandes vazios demográficos marcados com a letra A, explique a condição climática que afasta a concentração de população.\n✅ Resposta: Nessas áreas, predominam condições climáticas extremas, como desertos (exemplo: Deserto do Saara), onde há escassez de água, altas temperaturas e baixa fertilidade do solo, tornando difícil a fixação de grandes populações.\n\n2. (UECE)\nLeia atentamente o seguinte texto:\n\n\A população mundial deve crescer em 2 bilhões de pessoas nos próximos 30 anos, passando dos atuais 7,7 bilhões de indivíduos para 9,7 bilhões em 2050, de acordo com um novo relatório das Nações Unidas lançado nesta segunda-feira (17).\\n\nO Perspectivas Mundiais de População 2019: Destaques, que é publicado pela Divisão de População do Departamento da ONU de Assuntos Econômicos e Sociais, oferece um abrangente panorama global de padrões e perspectivas demográficas. O estudo concluiu que a população mundial poderá alcançar o seu pico por volta do final do atual século, chegando a quase 11 bilhões de pessoas em 2100.\n\nAs novas projeções populacionais indicam que, de agora até 2050, nove países vão responder por mais da metade do crescimento estimado para a população global: Índia, Nigéria, Paquistão, República Democrática do Congo, Etiópia, Tanzânia, Indonésia, Egito e Estados Unidos (em ordem decrescente de aumento esperado). Por volta de 2027, estima-se que a Índia vá superar a China como o país mais populoso do mundo. Até 2050, estima-se que a população da África Subsaariana dobre (um aumento de 99%). Regiões que podem ter taxas menores de crescimento populacional entre 2019 e 2050 incluem a Oceania (56%) – excetuando-se a Austrália/Nova Zelândia –, o Norte da África e o Oeste da Ásia (46%), a Austrália/Nova Zelândia (28%), o Centro e o Sul da Ásia (25%), a América Latina e o Caribe (18%), o Leste e o Sudeste da Ásia (3%), a Europa e a América do Norte (2%).\n\nConsiderando o excerto acima, é correto dizer que\n\na) a população chinesa, cujo crescimento demográfico lidera o ranking das projeções de crescimento para as próximas décadas, deverá crescer acima da média dos demais países.\n\nb) a população da África Subsaariana vem perdendo contingente demográfico em função das migrações em massa, razão pela qual tende a diminuir significativamente.\n\n✅ c) países asiáticos, africanos e os EUA responderão pela maior parcela do crescimento demográfico mundial.\n\nd) os países europeus, em função da chegada massiva de imigrantes e refugiados, reverteram suas taxas de crescimento demográfico e, nas próximas décadas, tenderão a crescer acima da média global.\n\n✅ Resposta correta: Alternativa C, pois o texto destaca que o crescimento populacional será mais expressivo em países da Ásia, África e nos Estados Unidos, enquanto outras regiões terão crescimento reduzido ou até mesmo estagnação.')">
 <div class="absolute -top-2 right-0 translate-x-2 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-md rotate-3">
@@ -626,13 +694,13 @@ onclick="abrirModal('APROFUNDE de Geografia Mód 14 / Pág 38 e 39', 'Eslly', 'P
 </div>
 
 
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Dilatação Térmica - Física', 'Renan', 'Física 19/02/25\nDilatação térmica\n\nO que é?\nQuando aumentamos a temperatura, aumentamos a agitação dos moléculas.\n\n1. Dilatação linear: comprimento\n(Desenho de uma barra de cobre aquecida por uma vela)\n- x1 e x2\n\n2. Dilatação superficial: área\n(Desenho de um retângulo com dimensões x1, x2, y1, y2)\nFórmulas:\n- Aq = l²\n- Ar = b · a\n- At = (b + b) / 2\n- AL = (D · d) / 2\n\n3. Dilatação volumétrica: volume\n(Desenho de um cubo com arestas a, b, c)\nFórmulas:\n- V = a³\n- a = ∛V\n- V = a · b · c')">
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Dilatação Térmica - Física', 'Renan', 'Física 19/02/25\nDilatação térmica\n\nO que é?\nQuando aumentamos a temperatura, aumentamos a agitação dos moléculas.\n\n1. Dilatação linear: comprimento\n(Desenho de uma barra de cobre aquecida por uma vela)\n- x1 e x2\n\n2. Dilatação superficial: área\n(Desenho de um retângulo com dimensões x1, x2, y1, y2)\nFórmulas:\n- Aq = l²\n- Ar = b · a\n- At = (b + b) / 2\n- AL = (D · d) / 2\n\n3. Dilatação volumétrica: volume\n(Desenho de um cubo com arestas a, b, c)\nFórmulas:\n- V = a³\n- a = ∛V\n- V = a · b · c')">
                     <h3 class="text-xl font-bold">Dilatação térmica - Física</h3>
                     <p class="text-sm text-gray-400">Enviado por: Renan</p>
                     <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
                 </div>  
             
-                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Assunto das Provas" onclick="abrirModal('Livro de Inglês pág 10 e 11', 'Eslly', 'Questão 1.\n\na) have helped\nb) haes goin\nc) Have you packed\nd) have dissapeard\ne) havent criud\nf) Has Alfred had\ng) has rained\n\nQuestão 2.\n\n(e) too many pictures of the Coliseu\n(f) to pay for his trip do Japan\n(a) tickets to the shared bathroom\n(b) because the sared bathrom\n(c) mugged by pickpockets\n(d) a lot with directions\n\nQuestão 3.\n\nhave helped / have do / have triud / phone / have studied / have help / has doing / he have\n\na) they have taked dance lessons together\n\nb) Have you readed the neews read?\n\nc) We have watched that move money times\n\nd) I have be restaurant new seafood\n\ne) It have it stoped barking yet?\n\nQuestão 5. (pode mudar)\n\nSarah and I visited Mark and Lucy last weekend. They have taken dance lessons together, and we were impressed by their moves. We have watched that movie many times, but it’s still funny. We also asked, \It has stopped barking yet?\ as their dog had been noisy earlier.')">
+                <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Assunto das Provas" onclick="abrirModal('Livro de Inglês pág 10 e 11', 'Eslly', 'Questão 1.\n\na) have helped\nb) haes goin\nc) Have you packed\nd) have dissapeard\ne) havent criud\nf) Has Alfred had\ng) has rained\n\nQuestão 2.\n\n(e) too many pictures of the Coliseu\n(f) to pay for his trip do Japan\n(a) tickets to the shared bathroom\n(b) because the sared bathrom\n(c) mugged by pickpockets\n(d) a lot with directions\n\nQuestão 3.\n\nhave helped / have do / have triud / phone / have studied / have help / has doing / he have\n\na) they have taked dance lessons together\n\nb) Have you readed the neews read?\n\nc) We have watched that move money times\n\nd) I have be restaurant new seafood\n\ne) It have it stoped barking yet?\n\nQuestão 5. (pode mudar)\n\nSarah and I visited Mark and Lucy last weekend. They have taken dance lessons together, and we were impressed by their moves. We have watched that movie many times, but it’s still funny. We also asked, \It has stopped barking yet?\ as their dog had been noisy earlier.')">
                     <h3 class="text-xl font-bold">Livro de Inglês pág 10 e 11</h3>
                     <p class="text-sm text-gray-400">Enviado por: Eslly</p>
                     <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>
@@ -641,7 +709,7 @@ onclick="abrirModal('APROFUNDE de Geografia Mód 14 / Pág 38 e 39', 'Eslly', 'P
 
 
 
-<div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Química" onclick="abrirModal('Exercício 7 de Química', 'Eslly', '7. Calcule a variação de entalpia a partir dos dados fornecidos<br><br>2CH4(g) + O²(g) -> 2CH³ OH(l)<br><br>Dado que:<br><br>I. CH4(g) + H²O(g) -> C4(g) + 3H²(g)<br>∆H¹= +206KJ<br><br>II. 2H²(g) + C0(g) -> CH³OH(l)<br>∆H²= -128KJ<br><br>III. 2H²(g) + O²(g) -> CH³OH(l) -> 2H²O(g)<br>∆H³= -483KJ<br><br>I. x2<br>II. x2<br>III. mantém<br><br>2CH4 + 2̶H̶²̶0̶ -> 2Co + 6̶H̶²̶<br>4H + 2Co -> 2CHOH<br>2H²² + O² -> 2H²O³<br><br>∆H = ∆H¹ + ∆H² + ∆H³<br>∆H = 412 - 256 - 483<br>∆H = 412 - 739<br>∆H = -327KJ<br><br>R = -327KJ')">  <h3 class="text-xl font-bold">Exercício 7 de Química</h3>  
+<div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Química" onclick="abrirModal('Exercício 7 de Química', 'Eslly', '7. Calcule a variação de entalpia a partir dos dados fornecidos<br><br>2CH4(g) + O²(g) -> 2CH³ OH(l)<br><br>Dado que:<br><br>I. CH4(g) + H²O(g) -> C4(g) + 3H²(g)<br>∆H¹= +206KJ<br><br>II. 2H²(g) + C0(g) -> CH³OH(l)<br>∆H²= -128KJ<br><br>III. 2H²(g) + O²(g) -> CH³OH(l) -> 2H²O(g)<br>∆H³= -483KJ<br><br>I. x2<br>II. x2<br>III. mantém<br><br>2CH4 + 2̶H̶²̶0̶ -> 2Co + 6̶H̶²̶<br>4H + 2Co -> 2CHOH<br>2H²² + O² -> 2H²O³<br><br>∆H = ∆H¹ + ∆H² + ∆H³<br>∆H = 412 - 256 - 483<br>∆H = 412 - 739<br>∆H = -327KJ<br><br>R = -327KJ')">  <h3 class="text-xl font-bold">Exercício 7 de Química</h3>  
             <p class="text-sm text-gray-400">Enviado por: Eslly</p>  
             <span class="absolute bottom-2 right-2 w-4 h-4 bg-gray-600 rounded-full"></span>  
         </div>    
@@ -653,7 +721,7 @@ onclick="abrirModal('APROFUNDE de Geografia Mód 14 / Pág 38 e 39', 'Eslly', 'P
 
 
 
-        <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer" data-materia="Química" onclick="abrirModal('Resposta do Exercício 6 de Química', 'Eslly', 'Resposta: d \n \nSolução: \n \n2N²+SO -> 2N²N5O \n2H²+O² -> 2H²O \n2N²O5+2H²O -> 4HNO³ \n2N²+60+2H² -> 2HNO³ \n \n2N²+SO² -> 2N²SO² \n \n∆H= +571KJ \n∆H= +153,2KJ \n∆H=696,4KJ \n \n∆H= 571,5 \n153,2 + \n------ \n-696 \n \nOBS: Só sei até aí pq não entendi a letra de Arlindo 👍')">  
+        <div class="relative bg-gray-800 p-3 rounded-lg shadow-lg cursor-pointer, border-effect" data-materia="Química" onclick="abrirModal('Resposta do Exercício 6 de Química', 'Eslly', 'Resposta: d \n \nSolução: \n \n2N²+SO -> 2N²N5O \n2H²+O² -> 2H²O \n2N²O5+2H²O -> 4HNO³ \n2N²+60+2H² -> 2HNO³ \n \n2N²+SO² -> 2N²SO² \n \n∆H= +571KJ \n∆H= +153,2KJ \n∆H=696,4KJ \n \n∆H= 571,5 \n153,2 + \n------ \n-696 \n \nOBS: Só sei até aí pq não entendi a letra de Arlindo 👍')">  
 
             <h3 class="text-xl font-bold">Resposta do Exercício 6 de Química</h3>  
 
