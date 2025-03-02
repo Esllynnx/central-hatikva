@@ -515,18 +515,60 @@ margin-top: 30px; /* Espaço extra acima do botão */
 }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+.maisopcoes-btn, 
+.maisopcoes-container a {
+    position: relative;
+    transition: all 0.1s ease-in-out;
+}
+
+.maisopcoes-btn::after, 
+.maisopcoes-container a::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                inset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.maisopcoes-btn:hover::after, 
+.maisopcoes-container a:hover::after {
+    border-color: orange;
+    border-width: 2px;
+    opacity: 1;
+    inset: -3px;
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.maisopcoes-btn:not(:hover)::after, 
+.maisopcoes-container a:not(:hover)::after {
+    border-width: 0px;
+    inset: -1px;
+}
                             </style>
                             
-                            <a href="#" class="maisopcoes-btn">Mais opções</a>
                             
                             <div class="maisopcoes-container" id="maisopcoes">
                                 <div class="maisopcoes-card">
                                     <a href="inicio.html"> Início</a>
                                     <a href="simulado.html"> Resultado do Simulado</a>
-                                    <a href="revisao.html"> Revisões</a>
-                                    <a href="documentos.html"> Arquivos dos Professores</a>
-                                    <hr>
-                                    <a style="color: red;" href="#" id="logoutButton"><i class="fa-solid fa-arrow-right-from-bracket"></i> Sair</a>
                                 </div>
                                 <button class="maisopcoes-close" onclick="fecharMaisOpcoes()">✖</button>
                             </div>
@@ -590,128 +632,163 @@ margin-top: 30px; /* Espaço extra acima do botão */
                         
                         
                         
+                        <!DOCTYPE html>
+                        <html lang="pt-br">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                            <title>Respostas dos Simulados</title>
                             <style>
-                                        * {
-                          user-select: none;
-                        }
-                        body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #1F2937;
-    color: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; /* Alterado de height para min-height */
-    padding: 20px;
-}
-
-.navbar {
-    position: fixed; /* Alterado de absolute para fixed */
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    background-color: #1F2937; /* Garante que a navbar fique visível */
-    z-index: 1000; /* Mantém a navbar acima do restante do conteúdo */
-}
-
-.container {
-    max-width: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: left;
-    margin-top: 60px; /* Adiciona espaço para evitar sobreposição com a navbar */
-}
-                                .navbar i {
-                                    color: #10B981;
-                                    font-size: 1.5rem;
-                                    cursor: pointer;
-                                }
-                                .container {
-                                    max-width: 400px;
-                                    padding: 20px;
-                                    border-radius: 10px;
-                                    text-align: left;
-                                }
-                                .cta-button {
-                                    background-color: #10B981;
+                                body {
+                                    font-family: Arial, sans-serif;
+                                    background-color: #1F2937;
                                     color: white;
-                                    padding: 15px 30px;
-                                    font-size: 1.25rem;
-                                    font-weight: 600;
-                                    border-radius: 8px;
-                                    transition: background 0.3s;
                                     display: flex;
-                                    align-items: center;
                                     justify-content: center;
-                                    width: 100%;
-                                    margin-top: 15px;
-                                    cursor: not-allowed;
-                                    opacity: 0.7;
-                                    position: relative;
+                                    align-items: center;
+                                    min-height: 100vh;
+                                    flex-direction: column;
+                                    padding: 20px;
                                 }
-                                .cta-button i {
-                                    margin-left: 10px;
-                                    position: absolute;
-                                    right: 15px;
+                                h1 {
+                                    color: #10B981;
+                                    text-align: center;
                                 }
-                                .image-container img {
+                                table {
                                     width: 100%;
+                                    max-width: 800px;
+                                    border-collapse: collapse;
                                     border-radius: 8px;
-                                    margin-bottom: 5px;
+                                    overflow: hidden;
                                 }
-                                .image-container p {
-                                    font-size: 0.75rem;
-                                    color: rgba(255, 255, 255, 0.2);
+                                th, td {
+                                    padding: 12px;
                                     text-align: center;
+                                    border: 1px solid #555;
                                 }
-                                .message {
-                                    color: #ff4f4f;
-                                    font-size: 0.9rem;
-                                    margin-top: 10px;
-                                    text-align: center;
+                                th {
+                                    background: #10B981;
+                                    color: white;
+                                    font-size: 18px;
                                 }
-                                @media (max-width: 768px) {
-                                    body {
-                                        height: auto;
-                                        padding: 10px;
+                                td {
+                                    background: #2D3748;
+                                    font-size: 16px;
+                                }
+                                .buttons {
+                                    display: flex;
+                                    flex-direction: row;
+                                    gap: 10px;
+                                    margin-bottom: 20px;
+                                    width: 100%;
+                                    max-width: 800px;
+                                }
+                                .buttons button {
+                                    background: #10B981;
+                                    border: none;
+                                    color: white;
+                                    padding: 12px;
+                                    font-size: 16px;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                    flex: 1;
+                                    width: 300px;
+                                    white-space: nowrap;
+                                }
+                                .buttons button:hover {
+                                    background: #059669;
+                                }
+                                @media (max-width: 600px) {
+                                    .buttons {
+                                        flex-direction: column;
+                                        gap: 8px;
+                                        padding: 0 5px;
                                     }
-                                    .container {
-                                        width: 100%;
-                                    }
                                 }
-                        
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+
+
+
+
+
+
+                                .buttons button {
+    position: relative;
+    transition: all 0.1s ease-in-out;
+}
+
+.buttons button::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.7s cubic-bezier(0.4, 0, 0.2, 1), 
+                inset 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttons button:hover::after {
+    border-color: orange;
+    border-width: 2px;
+    opacity: 1;
+    inset: -3px;
+    transition: opacity 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-width 0.15s cubic-bezier(0.4, 0, 0.2, 1), 
+                border-color 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.buttons button:not(:hover)::after {
+    border-width: 0px;
+    inset: -1px;
+}
 
                             </style>
                         </head>
                         <body>
-                            <div class="container">
-                                <div class="image-container">
-                                    <img src="simulado.webp" alt="Exemplo de Simulado">
-                                    <p>Imagem ilustrativa</p>
-                                </div>
-                                <h1 class="text-3xl font-bold text-green-500">Gabarito do Simulado 2º Ano (Linguagens & Exatas)</h1>
-                                <p class="mt-4 text-lg text-gray-300">O gabarito tem uma taxa de acerto de aproximadamente 35 a 40 questões corretas, o que equivale a 83% de acertos, garantindo uma boa nota.</p>
-                                <h2 class="text-2xl font-semibold text-white mt-4">Adicional</h2>
-                                <p class="text-gray-300 mt-2"><strong style="color: #10B981;">✓</strong> Liberado imediatamente após sair o resultado</p>
-                                <p class="text-gray-300"><strong style="color: #10B981;">✓</strong> Gabarito detalhado com porcentagem de acerto</p>
-                                <p class="text-gray-300"><strong style="color: #10B981;">✓</strong> Totalmente de graça, sem custos e afins.</p>
-                                
-                                <button class="cta-button" id="access-button" disabled>
-                                    Liberar Acessoㅤㅤ <i class="fa-solid fa-lock"></i>
-                                </button>
-                                <p class="message" id="access-message">Ainda não há gabarito disponível.</p>
+                            <h1>Respostas dos Simulados</h1>
+                            <div class="buttons">
+                                <button onclick="showSimulado('linguagens')">Simulado de Linguagens</button>
+                                <button onclick="showSimulado('exatas')">Simulado de Exatas</button>
+                                <button onclick="location.href='ftdcode.html'">Ir para FTD Code</button>
                             </div>
-
-</body>
-</html>
+                            <div id="linguagens" style="display: none;">
+                                <p id="linguagens-score" class="score">Acertos: 3/5 (60%)</p>
+                                <h2>Simulado de Linguagens</h2>
+                                <table>
+                                    <tr><th>Questão</th><th>Resposta</th></tr>
+                                    <tr><td>1</td><td>A</td></tr>
+                                    <tr><td>2</td><td>C</td></tr>
+                                    <tr><td>3</td><td>B</td></tr>
+                                    <tr><td>4</td><td>D</td></tr>
+                                    <tr><td>5</td><td>A</td></tr>
+                                </table>
+                            </div>
+                            <div id="exatas" style="display: none;">
+                                <p id="exatas-score" class="score">Acertos: 4/5 (80%)</p>
+                                <h2>Simulado de Exatas</h2>
+                                <table>
+                                    <tr><th>Questão</th><th>Resposta</th></tr>
+                                    <tr><td>1</td><td>D</td></tr>
+                                    <tr><td>2</td><td>B</td></tr>
+                                    <tr><td>3</td><td>C</td></tr>
+                                    <tr><td>4</td><td>A</td></tr>
+                                    <tr><td>5</td><td>D</td></tr>
+                                </table>
+                            </div>
+                            <script>
+                                function showSimulado(tipo) {
+                                    document.getElementById('linguagens').style.display = 'none';
+                                    document.getElementById('exatas').style.display = 'none';
+                                    document.getElementById(tipo).style.display = 'block';
+                                }
+                            </script>
+                        </body>
+                        </html>
+                        

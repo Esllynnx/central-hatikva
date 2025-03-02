@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Atividades</title>
+    <link rel="icon" type="image/ico" href="logo.ico">
+
+    <style>
+        body {
+            background-color: black;
+            color: lime;
+            font-family: monospace;
+            padding: 10px;
+            margin: 0;
+            overflow: hidden;
+        }
+        #console {
+            height: 100vh;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="console"></div>
+    <script>
+        const consoleElement = document.getElementById("console");
+        
+        function getRandomLog() {
+            const prefixes = ["FTD", "simulado", "central", "hatikva", "sys", "core", "node", "db", "proxy", "attack", "listener", "daemon", "kernel", "rootkit", "exploit"]; 
+            const actions = [
+                "connected", "disconnected", "error", "timeout", "query executed", "cache updated", "restarted", "warning", 
+                "packet sniffed", "port scanned", "exploit sent", "bruteforce attempt", "malware injected", "root access granted", "backdoor installed"
+            ];
+            const details = [
+                "192.168.1.1", "SQL Injection attempt", "user: admin", "session expired", "timeout 300ms", "critical failure", "success", "pending request", 
+                "SSH key found", "data exfiltrated", "ransomware deployed", "DDoS attack ongoing", "proxy chain active", "Tor node compromised", "firewall bypassed"
+            ];
+            
+            const prefix = prefixes[Math.floor(Math.random() * prefixes.length)];
+            const action = actions[Math.floor(Math.random() * actions.length)];
+            const detail = details[Math.floor(Math.random() * details.length)];
+            
+            return `[${new Date().toISOString()}] ${prefix.toUpperCase()} - ${action.toUpperCase()} - ${detail}`;
+        }
+
+        function addLog() {
+            const log = getRandomLog();
+            consoleElement.innerHTML += log + "\n";
+            consoleElement.scrollTop = consoleElement.scrollHeight;
+        }
+        
+        for (let i = 0; i < 30; i++) addLog(); // Gera logs iniciais
+        
+        setInterval(addLog, 300);
+    </script>
+</body>
+</html>
