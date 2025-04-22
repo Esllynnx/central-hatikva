@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Autores em Destaque</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    :root {
+      --primary: #a78bfa;
+      --accent: #8b5cf6;
+      --bg: #0f0f0f;
+      --text: #e5e7eb;
+      --gray: #6b7280;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Mulish', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    #slides-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: #18181b;
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      max-width: 1000px;
+      width: 90%;
+      opacity: 0;
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+      z-index: 10;
+    }
+
+    .slide-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .slide img {
+      border-radius: 1rem;
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      margin: 1rem 0;
+    }
+
+    .slide.horizontal .slide-content {
+      flex-direction: row;
+      text-align: left;
+      gap: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+    }
+
+    .author {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .typing-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .typing-text {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      color: var(--text);
+      white-space: pre-wrap;
+      text-align: center;
+    }
+
+    .translate-toggle {
+      background: none;
+      color: var(--accent);
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .translate-toggle:hover {
+      color: var(--primary);
+    }
+
+    .translation {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .slide.horizontal .slide-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .slide img {
+        max-width: 100%;
+      }
+    }
+
+    /* Botões de navegação */
+    .nav-icons {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 9999;
+    }
+
+    .nav-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #1f1f1f;
+      color: var(--gray);
+      border: 1px solid #2d2d2d;
+      border-radius: 12px;
+      padding: 10px 16px;
+      font-size: 1rem;
+      font-family: 'Mulish', sans-serif;
+      cursor: pointer;
+      transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-button i {
+      font-size: 1.2rem;
+    }
+
+    .nav-button:hover {
+      background-color: #2a2a2a;
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+
+
+
+
+
+
+
+
+
+
+    .translate-toggle {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+  background-color: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  text-decoration: none; /* Remove o sublinhado */
+}
+
+.translate-toggle:hover {
+  background-color: var(--accent);
+  color: #fff;
+  transform: scale(1.05);
+  text-decoration: none; /* Garante que não tenha sublinhado ao passar o mouse */
+}
+
+  </style>
+</head>
+<body>
+  <div id="slides-container">
+<!-- No <head> do seu HTML -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  
+  <style>
+    .info-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .info-icon {
+      margin-left: 10px;
+      cursor: pointer;
+      color: #999;
+      font-size: 1rem;
+    }
+  
+    .info-card {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #1c1c1c;
+      color: #fff;
+      padding: 15px 20px;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      width: 280px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      margin-bottom: 10px;
+      z-index: 10;
+      text-align: center;
+    }
+  
+    .info-card.active {
+      display: block;
+    }
+  </style>
+  
+  <!-- Dentro do seu slide -->
+  <div class="slide active">
+    <div class="slide-content">
+      <div class="info-wrapper">
+        <h1>Introduction
+          <i class="fa-solid fa-question info-icon" onclick="toggleInfoCard()"></i>
+        </h1>
+        <div class="info-card" id="infoCard">
+          Aqui terão informações adicionais!
+        </div>
+      </div>
+  
+      <div class="typing-container">
+        <p class="typing-text" data-text="Let's talk about 3 topics: Synopsis, Racism Scene, and Fun Facts. The texts will be in English to match the atmosphere of the class, but there is a translator available to use.">
+          Let's talk about 3 topics: Synopsis, Racism Scene, and Fun Facts. The texts will be in English to match the atmosphere of the class, but there is a translator available to use.        <button class="translate-toggle" onclick="toggleTranslation(this)">Traduzir</button>
+        <p class="translation hidden">
+          Vamos falar de 3 tópicos, Sinopse, Cena de Racismo e Curiosidades. Os textos estarão em inglês pela atmosfera da aula, mas tem um tradutor para usar.      </div>
+      <p class="author"></p>
+    </div>
+  </div>
+  
+  <script>
+    function toggleInfoCard() {
+      const card = document.getElementById('infoCard');
+      card.classList.toggle('active');
+    }
+  </script>
+  
+
+<!-- Certifique-se de ter isso no <head> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  
+  <!DOCTYPE html>
+  <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Info Card com Fechamento</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+    </style>
+  </head>
+  <body>
+  
+    <!-- Slide da Clarice Lispector -->
+    <div class="slide horizontal">
+      <div class="slide-content">
+        <img src="django.webp" alt="Clarice Lispector">
+        <div>
+          <div class="info-wrapper">
+            <h1 style="color: red;;">
+              Sinopse
+            </h1>
+          </div>
+  
+          <div class="typing-container">
+            <p style="text-align: left;" class="typing-text" data-text="Released in 2012, the film Django Unchained is set in the southern United States during the mid-19th century. The plot tells the story of Django, a Black enslaved man who is rescued by Dr. King Schultz, a German bounty hunter. Schultz makes Django his partner in the pursuit of wanted criminals and, in return, promises to free Django and his wife, Broomhilda, who is enslaved by the story’s villain, Calvin Candie.
+            The film powerfully portrays American society at the time and clearly highlights structural racism through the institution of slavery, as it follows Django’s challenging journey in search of love and freedom.">
+              Released in 2012, the film Django Unchained is set in the southern United States during the mid-19th century. The plot tells the story of Django, a Black enslaved man who is rescued by Dr. King Schultz, a German bounty hunter. Schultz makes Django his partner in the pursuit of wanted criminals and, in return, promises to free Django and his wife, Broomhilda, who is enslaved by the story’s villain, Calvin Candie.
+              The film powerfully portrays American society at the time and clearly highlights structural racism through the institution of slavery, as it follows Django’s challenging journey in search of love and freedom.
+            </p>
+            <button class="translate-toggle" onclick="toggleTranslation(this)">Traduzir</button>
+            <p class="translation hidden">
+              Lançado em 2012, o filme Django Livre (Django Unchained, em inglês) se passa no sul dos Estados Unidos, em meados do século XIX. O enredo narra a história de Django, um homem negro escravizado que é resgatado por Dr. King Schultz, um caçador de recompensas alemão. Schultz transforma Django em seu parceiro na busca por criminosos procurados e, em troca, promete libertar Django e sua esposa Broomhilda, que está escravizada por Calvin Candie, o vilão da trama.
+              A história retrata de forma intensa a sociedade americana da época e evidencia o racismo estrutural por meio da escravidão, mostrando as diversas dificuldades enfrentadas pelo protagonista em sua jornada por amor e liberdade.
+            </p>
+          </div>
+          <p style="color: red;" class="author">— Arlindo</p>
+        </div>
+      </div>
+    </div>
+
+        <!-- Slide da Clarice Lispector -->
+        <div class="slide horizontal">
+          <div class="slide-content">
+            <img src="racismo.webp" alt="Clarice Lispector">
+            <div>
+              <div class="info-wrapper">
+                <h1 style="color: gold;">
+                  Cena de Racismo     <button class="dark-button" onclick="openCard()">Ver Cena</button>
+
+                  <!-- Overlay e Card -->
+                  <div class="overlay" id="overlay" onclick="closeCard()"></div>
+                  <div class="card" id="card">
+                    <span class="close-btn" onclick="closeCard()">×</span> <!-- X para fechar -->
+                    <h2>Assista abaixo:</h2>
+                    <video controls width="560" height="315">
+                      <source src="videoplayback.mp4" type="video/mp4">
+                      Seu navegador não suporta o elemento de vídeo.
+                    </video>                    
+                  </div>
+                
+                  <script>
+                    function openCard() {
+                      document.getElementById("overlay").style.display = "block";
+                      document.getElementById("card").style.display = "block";
+                      setTimeout(function() {
+                        document.getElementById("card").classList.add("show");
+                      }, 10); // Pequeno delay para iniciar a animação
+                    }
+                
+                    function closeCard() {
+                      document.getElementById("card").classList.remove("show");
+                      setTimeout(function() {
+                        document.getElementById("overlay").style.display = "none";
+                        document.getElementById("card").style.display = "none";
+                      }, 500); // Espera a animação terminar antes de esconder
+                    }
+                  </script>
+                </h1>
+              </div>
+      
+              <div class="typing-container">
+                <p style="text-align: left;" class="typing-text" data-text="Well, after being sold and imprisoned, Django (the protagonist) escapes and returns to Calvin Candie's plantation (played by Leonardo DiCaprio). He blows up the big house and confronts those responsible for the oppression, killing the overseers and slave owners with coldness. Before blowing up the house, he gives a lesson in presence and superiority over (his color,) saying a memorable and mocking line:
+                (I like the way you die, boy.)
+                Emphasizing the line that one of the black overseers had said earlier.">
+                Well, after being sold and imprisoned, Django (the protagonist) escapes and returns to Calvin Candie's plantation (played by Leonardo DiCaprio). He blows up the big house and confronts those responsible for the oppression, killing the overseers and slave owners with coldness. Before blowing up the house, he gives a lesson in presence and superiority over "his color," saying a memorable and mocking line:
+                "I like the way you die, boy."
+                Emphasizing the line that one of the black overseers had said earlier.                </p>
+                <button class="translate-toggle" onclick="toggleTranslation(this)">Traduzir</button>
+                <p class="translation hidden">
+                  Bom, após ser vendido e preso, Django (o protagonista) escapa e retorna à fazenda de Calvin Candie (interpretado por Leonardo DiCaprio). Ele explode a casa grande e confronta os responsáveis pela opressão, matando os capatazes e os escravocratas com frieza. Antes de explodir a casa, ele dá uma aula de presença e superioridade sobre "sua cor", dizendo uma frase marcante e debochada:
+                  "I like the way you die, boy."
+                  Enfatizando a frase que um dos capatazes de pele negra havia dito anteriormente.                </p>
+              </div>
+              <p style="color: gold;" class="author">— Edgard</p>
+              
+
+              <style>
+                .dark-button {
+                  background-color: #333; /* Fundo escuro */
+                  color: #fff; /* Texto branco */
+                  border: 1px solid #333; /* Borda mais fina */
+                  padding: 5px 12px; /* Menos espaçamento interno */
+                  font-size: 13px; /* Fonte menor */
+                  font-weight: normal; /* Fonte sem negrito */
+                  text-transform: uppercase;
+                  cursor: pointer;
+                  transition: all 0.3s ease;
+                  border-radius: 12px; /* Bordas mais arredondadas */
+                }
+            
+                .dark-button:hover {
+                  background-color: #6a0dad; /* Cor de fundo roxa */
+                  border-color: #6a0dad; /* Borda roxa */
+                  color: #fff; /* Texto branco no hover */
+                }
+            
+                .dark-button:focus {
+                  outline: none; /* Remove a borda de foco padrão */
+                }
+            
+                /* Estilos do card */
+                .card {
+                  display: none; /* Inicialmente escondido */
+                  position: fixed;
+                  bottom: -400px; /* Inicia fora da tela */
+                  left: 50%;
+                  transform: translateX(-50%);
+                  background-color: #333; /* Fundo escuro */
+                  color: #fff; /* Texto branco */
+                  border-radius: 12px;
+                  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                  width: 80%;
+                  max-width: 600px;
+                  padding: 20px;
+                  z-index: 999;
+                  transition: bottom 0.5s ease; /* Animação de deslizar */
+                }
+            
+                .card.show {
+                  bottom: 50%; /* Move o card para o centro */
+                  transform: translate(-50%, 50%); /* Ajusta a posição */
+                }
+            
+                .card iframe {
+                  width: 100%;
+                  height: 315px;
+                  border: none;
+                  border-radius: 10px;
+                }
+            
+                .card h2 {
+                  text-align: center;
+                  margin-bottom: 15px;
+                }
+            
+                /* Fundo escuro atrás do card */
+                .overlay {
+                  display: none; /* Inicialmente escondido */
+                  position: fixed;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba(0, 0, 0, 0.5);
+                  z-index: 998;
+                }
+            
+                /* Estilo do X de fechamento */
+                .close-btn {
+                  position: absolute;
+                  top: 10px;
+                  right: 10px;
+                  font-size: 24px;
+                  font-weight: bold;
+                  color: #fff;
+                  cursor: pointer;
+                  transition: color 0.3s ease;
+                }
+            
+                .close-btn:hover {
+                  color: #6a0dad; /* Cor roxa no hover */
+                }
+              </style>            </div>
+          </div>
+        </div>
+
+            <!-- Slide da Clarice Lispector -->
+    <div class="slide horizontal">
+      <div class="slide-content">
+        <img src="final.webp" alt="Clarice Lispector">
+        <div>
+          <div class="info-wrapper">
+            <h1 style="color: greenyellow;">
+              Curiosidades
+            </h1>
+          </div>
+  
+          <div class="typing-container">
+            <p style="line-height: 1.3;" class="typing-text" data-text="Throughout the film, prejudice, racial segregation, and slavery are portrayed. This becomes even more evident due to the setting of the film: the southern United States—a region known for having supported slavery even after it was abolished in the North—prior to 1861, when slavery was still legal in many Southern states.
+
+            Although the film does not contain explicit speeches about racism, it is still possible, through the interpretation of the scenes, to grasp its critical message. The struggle of the protagonist, Django, represents not only his own battle, but also that of many Black people who fought for their freedom in the United States—and in some other countries on the American continent.">
+            Throughout the film, prejudice, racial segregation, and slavery are portrayed. This becomes even more evident due to the setting of the film: the southern United States—a region known for having supported slavery even after it was abolished in the North—prior to 1861, when slavery was still legal in many Southern states.
+
+            Although the film does not contain explicit speeches about racism, it is still possible, through the interpretation of the scenes, to grasp its critical message. The struggle of the protagonist, Django, represents not only his own battle, but also that of many Black people who fought for their freedom in the United States—and in some other countries on the American continent.            </p>
+            <button class="translate-toggle" onclick="toggleTranslation(this)">Traduzir</button>
+            <p class="translation hidden">
+              Durante todo o filme, são retratados  o preconceito, a segregação racial e a escravidão. Isso fica ainda mais evidente pelo cenário em que o filme se passa: No sul dos Estados Unidos -região conhecida por ter apoiado a escravidão mesmo após o norte aboli-la -, antes de 1861, quando a escravidão ainda era legal em muitos estados do sul. 
+              Apesar da obra não ter discursos explícitos sobre o racismo, ainda assim é possível, por meio da interpretação das cenas absorver a crítica do filme. A luta do protagonista, Django, não representa apenas sua propria batalha, mas também a de muitos negros que lutaram pela sua liberdade nos Estados Unidos e -em alguns outros países do continente americano.            </p>
+          </div>
+          <p style="color: greenyellow;" class="author">— Isaías</p>
+        </div>
+      </div>
+    </div>
+
+        <!-- Slide da Clarice Lispector -->
+        <div class="slide horizontal">
+          <div class="slide-content">
+            <img src="Django-Livre.webp" alt="Clarice Lispector">
+            <div>
+              <div class="info-wrapper">
+                <h3>Como dizia minha ex:</h3>
+                <h1>
+                  TERMINAMOS!!!
+                </h1>
+              </div>
+              <p class="author">— Eslly</p>
+              <!DOCTYPE html>
+              <html lang="pt-BR">
+              <head>
+                <meta charset="UTF-8">
+                <title>Botão Créditos</title>
+                <style>
+                  body {
+                    background-color: #121212;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    margin: 0;
+                  }
+              
+                  .creditos {
+                    background-color: #1f1f1f;
+                    color: #ffffff;
+                    border: 2px solid #333;
+                    padding: 8px 16px;
+                    font-size: 14px;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    margin-top: 30px;
+                  }
+                </style>
+              </head>
+              <body>
+                <button class="creditos" onclick="location.href='creditos.html'">Créditos</button>
+              </body>
+              </html>
+              
+            </div>
+          </div>
+        </div>
+  
+    <script>
+      function toggleInfoCardClarice() {
+        const card = document.getElementById('infoCardClarice');
+        card.classList.toggle('active');
+      }
+    </script>
+  
+  </body>
+  </html>
+    
+  <script>
+    function toggleInfoCardClarice() {
+      const card = document.getElementById('infoCardClarice');
+      card.classList.toggle('active');
+    }
+  </script>
+  
+
+
+  </div>
+
+  <!-- Botões de navegação -->
+  <div class="nav-icons">
+    <button class="nav-button" onclick="prevSlide()">
+      <i class="fa-solid fa-arrow-left"></i>
+      Anterior
+    </button>
+    <button class="nav-button" onclick="nextSlide()">
+      Próximo
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function typeText(element, text, index = 0) {
+      if (!element) return;
+      element.textContent = '';
+      let interval = setInterval(() => {
+        element.textContent = text.substring(0, index + 1);
+        index++;
+        if (index >= text.length) {
+          clearInterval(interval);
+        }
+      }, 25);
+    }
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+          const typing = slide.querySelector('.typing-text');
+          const text = typing?.dataset.text;
+          if (typing && text) typeText(typing, text);
+        }
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    function toggleTranslation(button) {
+      const translation = button.nextElementSibling;
+      translation.classList.toggle('hidden');
+      button.textContent = translation.classList.contains('hidden') ? 'Traduzir' : 'Ocultar tradução';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+
+    window.onload = () => {
+      const firstTyping = document.querySelector('.slide.active .typing-text');
+      const firstText = firstTyping?.dataset.text;
+      if (firstTyping && firstText) typeText(firstTyping, firstText);
+    };
+
+  </script>
+</body>
+</html>
