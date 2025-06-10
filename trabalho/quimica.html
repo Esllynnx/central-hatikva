@@ -154,6 +154,8 @@
   <div class="w-full max-w-6xl overflow-hidden relative mt-6">
     <div id="slides" class="flex transition-transform duration-700 ease-in-out">
 
+<!-- Slide 1-->
+
 <div class="slide w-full flex-shrink-0 flex flex-col items-center justify-center text-center p-6">
     <h1 class="text-4xl font-bold chalk-title typewriter">Sejam muito bem-vindos!</h1>
     <p class="text-lg opacity-90">
@@ -169,7 +171,8 @@
 </div>
 
 
-<!-- Slide 1 -->
+<!-- Slide 2 -->
+
 <div class="slide w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
   <div class="space-y-4">
     <h1 class="text-4xl font-bold chalk-title typewriter">Inteligência Artificial</h1>
@@ -182,7 +185,8 @@
   </div>
 </div>
 
-<!-- Slide 2 -->
+<!-- Slide 3 -->
+
 <div class="slide w-full flex-shrink-0 flex flex-col md:flex-row gap-6 p-6 items-center justify-between">
   <div class="flex flex-col items-center space-y-4 md:w-1/2">
     <img src="foto1.jpg" class="rounded-xl w-full shadow-xl" alt="img3">
@@ -194,7 +198,8 @@
   </div>
 </div>
 
-<!-- Slide 3 -->
+<!-- Slide 4 -->
+
 <div class="slide w-full flex-shrink-0 p-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center">
   <div>
     <img src="foto2.jpg" class="rounded-xl w-full shadow-lg mb-4" alt="img4">
@@ -213,7 +218,8 @@
   </div>
 </div>
 
-<!-- Slide 4 -->
+<!-- Slide 5 -->
+
 <div class="slide w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
   <div class="space-y-4 md:order-2">
     <h1 class="text-3xl font-bold chalk-title typewriter">Cuidado com os Custos</h1>
@@ -226,7 +232,8 @@
 </div>
 
 
-<!-- Slide 5 -->
+<!-- Slide 6 -->
+
 <div class="slide w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 items-center">
   <div class="space-y-4">
     <h1 class="text-3xl font-bold chalk-title typewriter">Lixo Eletrônico</h1>
@@ -239,11 +246,55 @@
   </div>
 </div>
 
+<!-- Slide 7 -->
+  
+<style>
+  .slide p {
+    font-size: 1.125rem; /* 18px aproximadamente */
+    line-height: 1.4;
+  }
+</style>
 
-<!-- Slide 6 -->
+<div class="slide w-full flex-shrink-0 p-6 grid grid-cols-1 md:grid-cols-3 gap-4 items-center text-center">
+  <div>
+    <img src="foto9.jpg" class="rounded-xl w-full max-w-[200px] mx-auto shadow-lg mb-4" alt="img4">
+    <h2 class="text-xl chalk-title typewriter">Parâmetros Químicos</h2>
+    <p class="text-sm opacity-90 text-left max-w-[280px] mx-auto">
+      pH 6,5–8,5 (ideal)<br>
+      Cloro residual: desinfecção<br>
+      Dureza: Ca, Mg<br>
+      Condutividade: sais<br>
+      Metais pesados: Pb, Fe, Mn<br>
+      Carga orgânica: DQO/DBO
+    </p>
+  </div>
+  <div>
+    <img src="foto10.jpg" class="rounded-xl w-full max-w-[200px] mx-auto shadow-lg mb-4" alt="img5">
+    <h2 class="text-xl chalk-title typewriter">Parâmetros Físicos</h2>
+    <p class="text-sm opacity-90 text-left max-w-[280px] mx-auto">
+      Cor: incolor<br>
+      Transparência: alta<br>
+      Partículas: nenhuma<br>
+      Odor e temperatura: não visíveis
+    </p>
+  </div>
+  <div>
+    <img src="foto11.jpg" class="rounded-xl w-full max-w-[200px] mx-auto shadow-lg mb-4" alt="img6">
+    <h2 class="text-xl chalk-title typewriter">Finalização</h2>
+    <p class="text-sm opacity-90 text-left max-w-[280px] mx-auto">
+      Avaliação visual só<br>
+      Para qualidade real, testes químicos<br>
+      Use tiras ou medidores digitais
+    </p>
+  </div>
+</div>
+
+
+
+<!-- Slide 8 -->
 <div class="slide w-full flex-shrink-0 flex flex-col items-center justify-center text-center p-6">
   <h1 class="text-4xl font-bold chalk-title typewriter mb-4">Conclusão</h1>
-  <p class="text-sm opacity-90 max-w-2xl">A IA pode ajudar a proteger a água e reduzir o lixo eletrônico. Mas é essencial usá-la com ética e responsabilidade. Tecnologia com consciência = futuro sustentável.</p>
+  <p class="text-sm opacity-90 max-w-2xl">A IA pode <span class="highlight">ajudar</span> a proteger a água e reduzir o lixo eletrônico. Mas é <span class="highlight">essencial</span> usá-la com ética e responsabilidade. Tecnologia com consciência = futuro sustentável.</p>
 </div>
 
     <!-- Indicadores -->
@@ -255,53 +306,115 @@
     </div>
   </div>
 
-  <script>
-    let currentSlide = 0;
-    const slides = document.getElementById('slides');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = document.querySelectorAll('.slide').length;
+<script>
+let currentSlide = 0;
+let slide7SubIndex = 0;
 
-    function updateSlide() {
-      slides.style.transform = `translateX(-${currentSlide * 100}%)`;
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('opacity-100', i === currentSlide);
-        dot.classList.toggle('opacity-50', i !== currentSlide);
-      });
+const slides = document.getElementById('slides');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = document.querySelectorAll('.slide').length;
+const slide7Divs = document.querySelectorAll('.slide')[6].children;
 
-      // Reinicia animações
-      const current = document.querySelectorAll('.slide')[currentSlide];
-      const titles = current.querySelectorAll('.chalk-title');
-      titles.forEach(title => {
-        title.classList.remove('typewriter');
-        title.classList.remove('chalk-title');
-        void title.offsetWidth;
-        title.classList.add('chalk-title');
-        title.classList.add('typewriter');
-      });
+function initSlide7() {
+  // Mostra só o primeiro item, oculta os demais
+  for (let i = 0; i < slide7Divs.length; i++) {
+    slide7Divs[i].style.display = (i === 0) ? 'block' : 'none';
+  }
+  slide7SubIndex = 0;
+}
+
+function updateSlide() {
+  slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('opacity-100', i === currentSlide);
+    dot.classList.toggle('opacity-50', i !== currentSlide);
+  });
+
+  const current = document.querySelectorAll('.slide')[currentSlide];
+  const titles = current.querySelectorAll('.chalk-title');
+
+  titles.forEach(title => {
+    title.classList.remove('typewriter');
+    title.classList.remove('chalk-title');
+    void title.offsetWidth; // trigger reflow para reiniciar animação
+    title.classList.add('chalk-title');
+    title.classList.add('typewriter');
+  });
+
+  if (currentSlide === 6) {
+    initSlide7();
+  }
+}
+
+function nextSlide() {
+  if (currentSlide === 6) {
+    if (slide7SubIndex < slide7Divs.length - 1) {
+      slide7SubIndex++;
+      for(let i = 0; i <= slide7SubIndex; i++){
+        slide7Divs[i].style.display = 'block';
+        if (i === slide7SubIndex) {
+          slide7Divs[i].classList.add('slide7-item-animate');
+          // Remove a classe após a animação para poder repetir depois se quiser
+          slide7Divs[i].addEventListener('animationend', () => {
+            slide7Divs[i].classList.remove('slide7-item-animate');
+          }, { once: true });
+        }
+      }
+      return;
     }
+  }
+  currentSlide = Math.min(currentSlide + 1, totalSlides - 1);
+  updateSlide();
+}
 
-    function goToSlide(index) {
-      currentSlide = index;
-      updateSlide();
+
+function prevSlide() {
+  if (currentSlide === 6) {
+    if (slide7SubIndex > 0) {
+      // Esconde o último item, mantendo os anteriores visíveis
+      slide7Divs[slide7SubIndex].style.display = 'none';
+      slide7SubIndex--;
+      return; // não muda o slide principal ainda
     }
+  }
+  currentSlide = Math.max(currentSlide - 1, 0);
+  updateSlide();
+}
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlide();
-    }
+function goToSlide(index) {
+  currentSlide = index;
+  updateSlide();
+}
 
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlide();
-    }
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") nextSlide();
+  if (e.key === "ArrowLeft") prevSlide();
+});
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") nextSlide();
-      if (e.key === "ArrowLeft") prevSlide();
-    });
+updateSlide();
 
-    updateSlide();
-  </script>
+</script>
+
+<style>
+  @keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide7-item-animate {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+</style>
+
+
 
 </body>
 </html>
